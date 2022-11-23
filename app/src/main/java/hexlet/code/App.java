@@ -1,6 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
 import java.util.Scanner;
 
 public class App {
@@ -26,11 +25,11 @@ public class App {
                 break;
             case 2:
                 playerName = Cli.meetPlayer();
-                Even.playEvenGame(playerName);
+                Engine.playGame(playerName, 2);
                 break;
             case 3:
                 playerName = Cli.meetPlayer();
-                Calc.playCalcGame(playerName);
+                Engine.playGame(playerName, 3);
                 break;
             case 0:
                 System.out.println("Good bye!");

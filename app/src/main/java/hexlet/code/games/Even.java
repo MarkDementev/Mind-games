@@ -3,16 +3,7 @@ package hexlet.code.games;
 import  java.util.Scanner;
 
 public class Even {
-    public static void playEvenGame(String playerName) {
-        System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
-
-        for (int correctAnswersCount = 0; correctAnswersCount < 3; correctAnswersCount++) {
-            askNewQuestion(playerName);
-        }
-        System.out.println("Congratulations, " + playerName + "!");
-    }
-
-    static void askNewQuestion(String playerName) {
+    public static void evenNewRound(String playerName) {
         final int RANDOM_NUMBER_UPPER_BORDER = 101;
         int outputNumber = (int) (Math.random() * RANDOM_NUMBER_UPPER_BORDER);
         boolean isEvenOutputNumber = false;
