@@ -4,5 +4,6 @@
 
 Демонстрация геймплея первой игры:
 https://asciinema.org/a/TYDN2a7b5WpQBcNtwHpgYNBWU
+
 Демонстрация геймплея второй игры:
 https://asciinema.org/a/ZOa6gwFn5bfaI8arSYuzAMApL
