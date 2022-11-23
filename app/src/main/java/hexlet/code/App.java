@@ -15,6 +15,7 @@ public class App {
         Scanner playerInteractionScanner = new Scanner(System.in);
         System.out.print("Your choice: ");
         int playerInteractionType = playerInteractionScanner.nextInt();
+        System.out.println("");
 
         if (playerInteractionType == 1) {
             Cli.meetPlayer();
