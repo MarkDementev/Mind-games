@@ -9,7 +9,6 @@ public class Cli {
         Scanner playerNameScanner = new Scanner(System.in);
         String playerName = playerNameScanner.next();
         System.out.println("Hello, " + playerName + "!");
-        playerNameScanner.close();
         return playerName;
     }
 }

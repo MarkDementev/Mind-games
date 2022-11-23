@@ -23,10 +23,10 @@ public class App {
             Even.playEvenGame(playerName);
         } else if (playerInteractionType == 0) {
             System.out.println("Good bye!");
-            System.exit(0);
         } else {
             System.out.println("Please, input only 1 or 0.");
             setGameOrJustGreet();
         }
+        playerInteractionScanner.close();
     }
 }
