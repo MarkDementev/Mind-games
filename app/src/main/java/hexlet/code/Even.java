@@ -13,8 +13,8 @@ public class Even {
     }
 
     static void askNewQuestion(String playerName) {
-        int upperRandomBorder = 101;
-        int outputNumber = (int) (Math.random() * upperRandomBorder);
+        final int RANDOM_NUMBER_UPPER_BORDER = 101;
+        int outputNumber = (int) (Math.random() * RANDOM_NUMBER_UPPER_BORDER);
         boolean isEvenOutputNumber = false;
         String correctAnswer = "no";
 
