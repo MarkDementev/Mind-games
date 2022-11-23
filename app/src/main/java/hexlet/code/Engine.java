@@ -1,6 +1,7 @@
 package hexlet.code;
 
-import hexlet.code.games.*;
+import hexlet.code.games.Even;
+import hexlet.code.games.Calc;
 
 public class Engine {
     public static void playGame(String playerName, int gameType) {
@@ -20,7 +21,7 @@ public class Engine {
                     Even.evenNewRound(playerName);
                     break;
                 case 3:
-                    //Calc.calcNewRound(playerName);
+                    Calc.calcNewRound(playerName);
             }
         }
         System.out.println("Congratulations, " + playerName + "!");
