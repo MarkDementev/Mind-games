@@ -14,6 +14,7 @@ public class Engine {
                 break;
             case 3:
                 System.out.println("What is the result of the expression?");
+                break;
             case 4:
                 System.out.println("Find the greatest common divisor of given numbers.");
         }
@@ -25,6 +26,7 @@ public class Engine {
                     break;
                 case 3:
                     Calc.calcNewRound(playerName);
+                    break;
                 case 4:
                     GCD.calcNewRound(playerName);
             }
