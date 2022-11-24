@@ -27,6 +27,10 @@ public class App {
                 playerName = Cli.meetPlayer();
                 Engine.playGame(playerName, 3);
                 break;
+            case "4":
+                playerName = Cli.meetPlayer();
+                Engine.playGame(playerName, 4);
+                break;
             case "0":
                 System.out.println("Good bye!");
                 break;
