@@ -22,15 +22,15 @@ public class App {
                 break;
             case "2":
                 playerName = Cli.meetPlayer();
-                Engine.playGame(playerName, 2);
+                Engine.makeStartRoundsFinalize(playerName, 2);
                 break;
             case "3":
                 playerName = Cli.meetPlayer();
-                Engine.playGame(playerName, 3);
+                Engine.makeStartRoundsFinalize(playerName, 3);
                 break;
             case "4":
                 playerName = Cli.meetPlayer();
-                Engine.playGame(playerName, 4);
+                Engine.makeStartRoundsFinalize(playerName, 4);
                 break;
             case "0":
                 System.out.println("Good bye!");

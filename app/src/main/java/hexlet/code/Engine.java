@@ -5,7 +5,7 @@ import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
 
 public class Engine {
-    public static void playGame(String playerName, int gameType) {
+    public static void makeStartRoundsFinalize(String playerName, int gameType) {
         final int ROUND_COUNT = 3;
 
         switch (gameType) {
@@ -38,5 +38,13 @@ public class Engine {
         final int RANDOM_NUMBER_UPPER_BORDER = 101;
 
         return (int) (Math.random() * RANDOM_NUMBER_UPPER_BORDER);
+    }
+
+    public static void informAboutWrongAnswer(String playerAnswer, String correctAnswer, String playerName) {
+        System.out.println("'" + playerAnswer + "'"
+                + " is wrong answer ;(. Correct answer was"
+                + " '" + correctAnswer + "'.");
+        System.out.println("Let's try again, " + playerName + "!");
+        System.exit(0);
     }
 }

@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-
 import java.util.Scanner;
 
 public class Calc {
@@ -31,11 +30,7 @@ public class Calc {
         if (playerAnswer.equals(correctAnswer)) {
             System.out.println("Correct!");
         } else {
-            System.out.println("'" + playerAnswer + "'"
-                    + " is wrong answer ;(. Correct answer was"
-                    + " '" + correctAnswer + "'.");
-            System.out.println("Let's try again, " + playerName + "!");
-            System.exit(0);
+            Engine.informAboutWrongAnswer(playerAnswer, correctAnswer, playerName);
         }
     }
 }
