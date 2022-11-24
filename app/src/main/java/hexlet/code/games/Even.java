@@ -6,11 +6,9 @@ import java.util.Scanner;
 public class Even {
     public static void evenNewRound(String playerName) {
         int outputNumber = Engine.calcRandomNumber();
-        boolean isEvenOutputNumber = false;
         String correctAnswer = "no";
 
         if (outputNumber % 2 == 0) {
-            isEvenOutputNumber = true;
             correctAnswer = "yes";
         }
 
@@ -19,8 +17,7 @@ public class Even {
         System.out.print("Your answer: ");
         String playerAnswer = isEvenScanner.next();
 
-        if ((isEvenOutputNumber && playerAnswer.equals("yes"))
-                || (!isEvenOutputNumber && playerAnswer.equals("no"))) {
+        if (playerAnswer.equals(correctAnswer)) {
             System.out.println("Correct!");
         } else {
             Engine.informAboutWrongAnswer(playerAnswer, correctAnswer, playerName);
