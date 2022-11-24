@@ -3,6 +3,7 @@ package hexlet.code;
 import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
+import hexlet.code.games.Progression;
 
 public class Engine {
     public static void makeStartRoundsFinalize(String playerName, int gameType) {
@@ -17,6 +18,9 @@ public class Engine {
                 break;
             case 4:
                 System.out.println("Find the greatest common divisor of given numbers.");
+                break;
+            case 5:
+                System.out.println("What number is missing in the progression?");
         }
 
         for (int correctAnswersCount = 0; correctAnswersCount < ROUND_COUNT; correctAnswersCount++) {
@@ -29,6 +33,9 @@ public class Engine {
                     break;
                 case 4:
                     GCD.gCDNewRound(playerName);
+                    break;
+                case 5:
+                    Progression.progressionNewRound(playerName);
             }
         }
         System.out.println("Congratulations, " + playerName + "!");
