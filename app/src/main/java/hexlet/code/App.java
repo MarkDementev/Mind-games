@@ -9,6 +9,7 @@ public class App {
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
         System.out.println("3 - Calc");
+        System.out.println("4 - GCD");
         System.out.println("0 - Exit");
         Scanner playerInteractionScanner = new Scanner(System.in);
         System.out.print("Your choice: ");
