@@ -8,5 +8,5 @@ https://asciinema.org/a/TYDN2a7b5WpQBcNtwHpgYNBWU
 Демонстрация геймплея второй игры:
 https://asciinema.org/a/ZOa6gwFn5bfaI8arSYuzAMApL
 
-Демонстрация геймплея второй игры:
+Демонстрация геймплея третьей игры:
 https://asciinema.org/a/rquL9XY1VOe6xEMmncAssEwsc
