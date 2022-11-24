@@ -40,11 +40,15 @@ public class Engine {
         return (int) (Math.random() * RANDOM_NUMBER_UPPER_BORDER);
     }
 
-    public static void informAboutWrongAnswer(String playerAnswer, String correctAnswer, String playerName) {
-        System.out.println("'" + playerAnswer + "'"
-                + " is wrong answer ;(. Correct answer was"
-                + " '" + correctAnswer + "'.");
-        System.out.println("Let's try again, " + playerName + "!");
-        System.exit(0);
+    public static void isCorrectAnswer(String playerAnswer, String correctAnswer, String playerName) {
+        if (playerAnswer.equals(correctAnswer)) {
+            System.out.println("Correct!");
+        } else {
+            System.out.println("'" + playerAnswer + "'"
+                    + " is wrong answer ;(. Correct answer was"
+                    + " '" + correctAnswer + "'.");
+            System.out.println("Let's try again, " + playerName + "!");
+            System.exit(0);
+        }
     }
 }

@@ -16,11 +16,6 @@ public class Even {
         System.out.println("Question: " + outputNumber);
         System.out.print("Your answer: ");
         String playerAnswer = isEvenScanner.next();
-
-        if (playerAnswer.equals(correctAnswer)) {
-            System.out.println("Correct!");
-        } else {
-            Engine.informAboutWrongAnswer(playerAnswer, correctAnswer, playerName);
-        }
+        Engine.isCorrectAnswer(playerAnswer, correctAnswer, playerName);
     }
 }

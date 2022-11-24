@@ -13,12 +13,7 @@ public class GCD {
         System.out.println("Question: " + firstOutputElement + " " + secondOutputElement);
         System.out.print("Your answer: ");
         String playerAnswer = gCDScanner.next();
-
-        if (playerAnswer.equals(correctAnswer)) {
-            System.out.println("Correct!");
-        } else {
-            Engine.informAboutWrongAnswer(playerAnswer, correctAnswer, playerName);
-        }
+        Engine.isCorrectAnswer(playerAnswer, correctAnswer, playerName);
     }
 
     static int findGCD(int firstOutputElement, int secondOutputElement) {
