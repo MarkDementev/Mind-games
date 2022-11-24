@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        String playerName;
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
         System.out.println("2 - Even");
@@ -15,6 +14,12 @@ public class App {
         System.out.print("Your choice: ");
         String playerInteractionType = playerInteractionScanner.next();
         System.out.println("");
+        startSelectedGame(playerInteractionType);
+        playerInteractionScanner.close();
+    }
+
+    static void startSelectedGame(String playerInteractionType) {
+        String playerName;
 
         switch (playerInteractionType) {
             case "1":
@@ -38,6 +43,5 @@ public class App {
             default:
                 System.out.println("Please, input only 1 or 0.");
         }
-        playerInteractionScanner.close();
     }
 }
