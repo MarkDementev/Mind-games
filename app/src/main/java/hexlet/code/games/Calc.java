@@ -1,12 +1,13 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Scanner;
 
 public class Calc {
     public static void calcNewRound(String playerName) {
-        final int RANDOM_NUMBER_UPPER_BORDER = 101;
-        int firstCalcElement = (int) (Math.random() * RANDOM_NUMBER_UPPER_BORDER);
-        int secondCalcElement = (int) (Math.random() * RANDOM_NUMBER_UPPER_BORDER);
+        int firstCalcElement = Engine.calcRandomNumber();
+        int secondCalcElement = Engine.calcRandomNumber();
         double mathOperatorGeneratorElement = Math.random();
         String outputMathExpression;
         String correctAnswer;

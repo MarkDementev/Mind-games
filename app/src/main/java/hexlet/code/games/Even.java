@@ -1,11 +1,12 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Scanner;
 
 public class Even {
     public static void evenNewRound(String playerName) {
-        final int RANDOM_NUMBER_UPPER_BORDER = 101;
-        int outputNumber = (int) (Math.random() * RANDOM_NUMBER_UPPER_BORDER);
+        int outputNumber = Engine.calcRandomNumber();
         boolean isEvenOutputNumber = false;
         String correctAnswer = "no";
 

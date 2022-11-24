@@ -28,9 +28,15 @@ public class Engine {
                     Calc.calcNewRound(playerName);
                     break;
                 case 4:
-                    GCD.calcNewRound(playerName);
+                    GCD.gCDNewRound(playerName);
             }
         }
         System.out.println("Congratulations, " + playerName + "!");
+    }
+
+    public static int calcRandomNumber() {
+        final int RANDOM_NUMBER_UPPER_BORDER = 101;
+
+        return (int) (Math.random() * RANDOM_NUMBER_UPPER_BORDER);
     }
 }

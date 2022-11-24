@@ -1,12 +1,13 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
+
 import java.util.Scanner;
 
 public class GCD {
-    public static void calcNewRound(String playerName) {
-        final int RANDOM_NUMBER_UPPER_BORDER = 101;
-        int firstOutputElement = (int) (Math.random() * RANDOM_NUMBER_UPPER_BORDER);
-        int secondOutputElement = (int) (Math.random() * RANDOM_NUMBER_UPPER_BORDER);
+    public static void gCDNewRound(String playerName) {
+        int firstOutputElement = Engine.calcRandomNumber();
+        int secondOutputElement = Engine.calcRandomNumber();
         String correctAnswer = "" + findGCD(firstOutputElement, secondOutputElement);
 
         Scanner gCDScanner = new Scanner(System.in);
