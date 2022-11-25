@@ -13,6 +13,7 @@ public class Progression {
         int firstElementProgression = Engine.calcRandomNumber();
         String[] progressionArr = new String[arrLength];
         int[] intProgressionArr = new int[arrLength];
+        String correctAnswer;
 
         for (int i1 = 0; i1 < arrLength; i1++) {
             intProgressionArr[i1] = firstElementProgression;
@@ -23,12 +24,12 @@ public class Progression {
             progressionArr[i2] = Integer.toString(intProgressionArr[i2]);
         }
         progressionArr[emptyPlaceNumber] = "..";
-        System.out.println(Arrays.toString(progressionArr));
+        correctAnswer = Integer.toString(intProgressionArr[emptyPlaceNumber]);
 
-        //Scanner progressionScanner = new Scanner(System.in);
-        //System.out.println("Question: " + firstOutputElement + " " + secondOutputElement);
-        //System.out.print("Your answer: ");
-        //String playerAnswer = progressionScanner.next();
-        //Engine.isCorrectAnswer(playerAnswer, correctAnswer, playerName);
+        Scanner progressionScanner = new Scanner(System.in);
+        System.out.println("Question: " + Arrays.toString(progressionArr));
+        System.out.print("Your answer: ");
+        String playerAnswer = progressionScanner.next();
+        Engine.isCorrectAnswer(playerAnswer, correctAnswer, playerName);
     }
 }
