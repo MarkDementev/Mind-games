@@ -9,7 +9,7 @@ public class Progression {
     public static void progressionNewRound(String playerName) {
         int arrLength = (int) (5 + Math.random() * 6);
         int emptyPlaceNumber = (int) (Math.random() * (arrLength - 1));
-        int progressionStep = 2;
+        int progressionStep = Engine.calcRandomNumber();
         int firstElementProgression = Engine.calcRandomNumber();
         String[] progressionArr = new String[arrLength];
         int[] intProgressionArr = new int[arrLength];
