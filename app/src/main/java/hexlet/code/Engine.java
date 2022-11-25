@@ -4,6 +4,7 @@ import hexlet.code.games.Even;
 import hexlet.code.games.Calc;
 import hexlet.code.games.GCD;
 import hexlet.code.games.Progression;
+import hexlet.code.games.Prime;
 
 public class Engine {
     public static void makeStartRoundsFinalize(String playerName, int gameType) {
@@ -21,6 +22,9 @@ public class Engine {
                 break;
             case 5:
                 System.out.println("What number is missing in the progression?");
+                break;
+            case 6:
+                System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         }
 
         for (int correctAnswersCount = 0; correctAnswersCount < ROUND_COUNT; correctAnswersCount++) {
@@ -36,6 +40,9 @@ public class Engine {
                     break;
                 case 5:
                     Progression.progressionNewRound(playerName);
+                    break;
+                case 6:
+                    Prime.primeNewRound(playerName);
             }
         }
         System.out.println("Congratulations, " + playerName + "!");

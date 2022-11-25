@@ -10,6 +10,7 @@ public class App {
         System.out.println("3 - Calc");
         System.out.println("4 - GCD");
         System.out.println("5 - Progression");
+        System.out.println("6 - Prime");
         System.out.println("0 - Exit");
         Scanner playerInteractionScanner = new Scanner(System.in);
         System.out.print("Your choice: ");
@@ -41,6 +42,10 @@ public class App {
             case "5":
                 playerName = Cli.meetPlayer();
                 Engine.makeStartRoundsFinalize(playerName, 5);
+                break;
+            case "6":
+                playerName = Cli.meetPlayer();
+                Engine.makeStartRoundsFinalize(playerName, 6);
                 break;
             case "0":
                 System.out.println("Good bye!");
