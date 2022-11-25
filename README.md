@@ -13,3 +13,6 @@ https://asciinema.org/a/rquL9XY1VOe6xEMmncAssEwsc
 
 Демонстрация геймплея четвёртой игры:
 https://asciinema.org/a/9bsYRk5eEFmytK6kWy1ZwJfaF
+
+Демонстрация геймплея пятой игры:
+https://asciinema.org/a/auTs88SqKptrJpFmdIH6LFsQM
