@@ -7,9 +7,9 @@ import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
 public class Engine {
+        public final static int RANDOM_NUMBER_UPPER_BORDER = 101;
+        public final static int ROUND_COUNT = 3;
     public static void makeStartRoundsFinalize(String playerName, int gameType) {
-        final int ROUND_COUNT = 3;
-
         switch (gameType) {
             case 2:
                 System.out.println("Answer 'yes' if the number is even, otherwise answer 'no'.");
@@ -23,7 +23,7 @@ public class Engine {
             case 5:
                 System.out.println("What number is missing in the progression?");
                 break;
-            case 6:
+            default:
                 System.out.println("Answer 'yes' if given number is prime. Otherwise answer 'no'.");
         }
 
@@ -41,7 +41,7 @@ public class Engine {
                 case 5:
                     Progression.progressionNewRound(playerName);
                     break;
-                case 6:
+                default:
                     Prime.primeNewRound(playerName);
             }
         }
@@ -49,9 +49,7 @@ public class Engine {
     }
 
     public static int calcRandomNumber() {
-        final int RANDOM_NUMBER_UPPER_BORDER = 101;
-
-        return (int) (Math.random() * RANDOM_NUMBER_UPPER_BORDER);
+        return (int) (Math.random() * Engine.RANDOM_NUMBER_UPPER_BORDER);
     }
 
     public static void isCorrectAnswer(String playerAnswer, String correctAnswer, String playerName) {
