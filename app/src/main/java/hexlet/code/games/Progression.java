@@ -27,7 +27,10 @@ public class Progression {
         correctAnswer = Integer.toString(intProgressionArr[emptyPlaceNumber]);
 
         Scanner progressionScanner = new Scanner(System.in);
-        System.out.println("Question: " + Arrays.toString(progressionArr));
+        System.out.println("Question: " + Arrays.toString(progressionArr)
+                .replace(",", "")
+                .replace("[", "")
+                .replace("]", ""));
         System.out.print("Your answer: ");
         String playerAnswer = progressionScanner.next();
         Engine.isCorrectAnswer(playerAnswer, correctAnswer, playerName);
