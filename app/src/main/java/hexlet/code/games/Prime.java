@@ -6,10 +6,10 @@ import java.util.Scanner;
 public class Prime {
     public static void primeNewRound(String playerName) {
         int outputNumber = Engine.calcRandomNumber();
-        String correctAnswer;
+        String correctAnswer = "no";
         int noOneDividerCounts = 0;
 
-        for (int i = 2; i <= Engine.RANDOM_NUMBER_UPPER_BORDER; i++) {
+        for (int i = 2; i <= Engine.getRandomNumberUpperBorder(); i++) {
             if (outputNumber % i == 0) {
                 noOneDividerCounts++;
             }
@@ -17,8 +17,6 @@ public class Prime {
 
         if (outputNumber > 1 && noOneDividerCounts == 1) {
             correctAnswer = "yes";
-        } else {
-            correctAnswer = "no";
         }
 
         Scanner primeScanner = new Scanner(System.in);

@@ -7,8 +7,8 @@ import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
 public class Engine {
-        public final static int RANDOM_NUMBER_UPPER_BORDER = 101;
-        public final static int ROUND_COUNT = 3;
+    private static final int RANDOM_NUMBER_UPPER_BORDER = 101;
+    private static final int ROUND_COUNT = 3;
     public static void makeStartRoundsFinalize(String playerName, int gameType) {
         switch (gameType) {
             case 2:
@@ -49,7 +49,7 @@ public class Engine {
     }
 
     public static int calcRandomNumber() {
-        return (int) (Math.random() * Engine.RANDOM_NUMBER_UPPER_BORDER);
+        return (int) (Math.random() * Engine.getRandomNumberUpperBorder());
     }
 
     public static void isCorrectAnswer(String playerAnswer, String correctAnswer, String playerName) {
@@ -62,5 +62,9 @@ public class Engine {
             System.out.println("Let's try again, " + playerName + "!");
             System.exit(0);
         }
+    }
+
+    public static int getRandomNumberUpperBorder() {
+        return RANDOM_NUMBER_UPPER_BORDER;
     }
 }
