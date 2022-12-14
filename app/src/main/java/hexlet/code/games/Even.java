@@ -8,7 +8,7 @@ public class Even {
     public static void playEvenGame() {
         Engine.playerIntroduction();
         Engine.showGameRule(2);
-        Engine.askQuestions(2);
+        Engine.askQuestionsToEnd(2);
     }
 
     public static String generateEvenQuestion() {

@@ -8,7 +8,7 @@ public class Calculator {
     public static void playCalculatorGame() {
         Engine.playerIntroduction();
         Engine.showGameRule(3);
-        Engine.askQuestions(3);
+        Engine.askQuestionsToEnd(3);
     }
 
     public static String generateCalculatorQuestion() {

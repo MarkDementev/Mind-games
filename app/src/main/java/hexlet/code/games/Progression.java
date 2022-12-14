@@ -10,7 +10,7 @@ public class Progression {
     public static void playProgressionGame() {
         Engine.playerIntroduction();
         Engine.showGameRule(5);
-        Engine.askQuestions(5);
+        Engine.askQuestionsToEnd(5);
     }
 
     public static String generateProgressionQuestion() {

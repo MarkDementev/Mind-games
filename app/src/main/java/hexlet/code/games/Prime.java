@@ -8,7 +8,7 @@ public class Prime {
     public static void playPrimeGame() {
         Engine.playerIntroduction();
         Engine.showGameRule(6);
-        Engine.askQuestions(6);
+        Engine.askQuestionsToEnd(6);
     }
 
     public static String generatePrimeQuestion() {

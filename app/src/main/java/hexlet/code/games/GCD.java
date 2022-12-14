@@ -9,7 +9,7 @@ public class GCD {
     public static void playGCDGame() {
         Engine.playerIntroduction();
         Engine.showGameRule(4);
-        Engine.askQuestions(4);
+        Engine.askQuestionsToEnd(4);
     }
 
     public static String generateGCDQuestion() {
@@ -18,15 +18,15 @@ public class GCD {
         return firstOutputElement + " " + secondOutputElement;
     }
 
+    public static String generateGCDCorrectAnswer(String question) {
+        String[] gCDArr = question.split(" ");
+        return "" + findGCD(Integer.parseInt(gCDArr[0]), Integer.parseInt(gCDArr[1]));
+    }
+
     static int findGCD(int firstOutputElement, int secondOutputElement) {
         if (secondOutputElement == 0) {
             return firstOutputElement;
         }
         return findGCD(secondOutputElement, firstOutputElement % secondOutputElement);
-    }
-
-    public static String generateGCDCorrectAnswer(String question) {
-        String[] gCDArr = question.split(" ");
-        return "" + findGCD(Integer.parseInt(gCDArr[0]), Integer.parseInt(gCDArr[1]));
     }
 }
