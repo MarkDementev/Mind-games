@@ -6,6 +6,8 @@ import hexlet.code.RandomUtils;
 public class Calculator {
     public static final int CALCULATOR_GAME_SEQUENCE_NUMBER = 3;
     public static final String CALCULATOR_RULE = "What is the result of the expression?";
+    public static final int FIRST_PERCENT_BORDER = 33;
+    public static final int SECOND_PERCENT_BORDER = 67;
     public static void playCalculatorGame() {
         Engine.playerIntroduction();
         Engine.showGameRule(CALCULATOR_GAME_SEQUENCE_NUMBER);
@@ -18,9 +20,10 @@ public class Calculator {
         int mathOperatorGeneratorElement = RandomUtils.generateRandomNumber();
         String question;
 
-        if (mathOperatorGeneratorElement < 33) {
+        if (mathOperatorGeneratorElement < FIRST_PERCENT_BORDER) {
             question = firstCalculationElement + " + " + secondCalculationElement;
-        } else if (mathOperatorGeneratorElement > 33 && mathOperatorGeneratorElement < 67) {
+        } else if (mathOperatorGeneratorElement > FIRST_PERCENT_BORDER
+                && mathOperatorGeneratorElement < SECOND_PERCENT_BORDER) {
             question = firstCalculationElement + " - " + secondCalculationElement;
         } else {
             question = firstCalculationElement + " * " + secondCalculationElement;

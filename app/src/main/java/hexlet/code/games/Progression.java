@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class Progression {
     public static final int PROGRESSION_GAME_SEQUENCE_NUMBER = 5;
     public static final String PROGRESSION_RULE = "What number is missing in the progression?";
+    private static final int PROGRESSION_MIN_SIZE = 5;
 
     public static void playProgressionGame() {
         Engine.playerIntroduction();
@@ -15,7 +16,7 @@ public class Progression {
     }
 
     public static String generateProgressionQuestion() {
-        int arrLength = (int) (5 + Math.random() * 6);
+        int arrLength = (int) (PROGRESSION_MIN_SIZE + Math.random() * (PROGRESSION_MIN_SIZE + 1));
         int emptyPlaceNumber = (int) (Math.random() * (arrLength - 1));
         int progressionStep = RandomUtils.generateRandomNumber();
         int firstElementProgression = RandomUtils.generateRandomNumber();

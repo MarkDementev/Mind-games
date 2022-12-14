@@ -20,7 +20,7 @@ public class Prime {
         String correctAnswer = "no";
         int noOneDividerCounts = 0;
 
-        for (int i = 2; i <= RandomUtils.getRandomNumberUpperBorder(); i++) {
+        for (int i = 2; i <= RandomUtils.RANDOM_NUMBER_UPPER_BORDER; i++) {
             if (Integer.parseInt(question) % i == 0) {
                 noOneDividerCounts++;
             }
