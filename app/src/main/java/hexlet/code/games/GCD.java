@@ -1,19 +1,21 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.Scanner;
+import hexlet.code.RandomUtils;
 
 public class GCD {
-    public static void gCDNewRound(String playerName) {
-        int firstOutputElement = Engine.calcRandomNumber();
-        int secondOutputElement = Engine.calcRandomNumber();
-        String correctAnswer = "" + findGCD(firstOutputElement, secondOutputElement);
+    public static final String GCD_RULE = "Find the greatest common divisor of given numbers.";
 
-        Scanner gCDScanner = new Scanner(System.in);
-        System.out.println("Question: " + firstOutputElement + " " + secondOutputElement);
-        System.out.print("Your answer: ");
-        String playerAnswer = gCDScanner.next();
-        Engine.isCorrectAnswer(playerAnswer, correctAnswer, playerName);
+    public static void playGCDGame() {
+        Engine.playerIntroduction();
+        Engine.showGameRule(4);
+        Engine.askQuestions(4);
+    }
+
+    public static String generateGCDQuestion() {
+        int firstOutputElement = RandomUtils.generateRandomNumber();
+        int secondOutputElement = RandomUtils.generateRandomNumber();
+        return firstOutputElement + " " + secondOutputElement;
     }
 
     static int findGCD(int firstOutputElement, int secondOutputElement) {
@@ -21,5 +23,10 @@ public class GCD {
             return firstOutputElement;
         }
         return findGCD(secondOutputElement, firstOutputElement % secondOutputElement);
+    }
+
+    public static String generateGCDCorrectAnswer(String question) {
+        String[] gCDArr = question.split(" ");
+        return "" + findGCD(Integer.parseInt(gCDArr[0]), Integer.parseInt(gCDArr[1]));
     }
 }

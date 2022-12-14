@@ -1,28 +1,33 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import java.util.Scanner;
+import hexlet.code.RandomUtils;
 
 public class Prime {
-    public static void primeNewRound(String playerName) {
-        int outputNumber = Engine.calcRandomNumber();
+    public static final String PRIME_RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    public static void playPrimeGame() {
+        Engine.playerIntroduction();
+        Engine.showGameRule(6);
+        Engine.askQuestions(6);
+    }
+
+    public static String generatePrimeQuestion() {
+        return Integer.toString(RandomUtils.generateRandomNumber());
+    }
+
+    public static String generatePrimeCorrectAnswer(String question) {
         String correctAnswer = "no";
         int noOneDividerCounts = 0;
 
-        for (int i = 2; i <= Engine.getRandomNumberUpperBorder(); i++) {
-            if (outputNumber % i == 0) {
+        for (int i = 2; i <= RandomUtils.getRandomNumberUpperBorder(); i++) {
+            if (Integer.parseInt(question) % i == 0) {
                 noOneDividerCounts++;
             }
         }
 
-        if (outputNumber > 1 && noOneDividerCounts == 1) {
+        if (Integer.parseInt(question) > 1 && noOneDividerCounts == 1) {
             correctAnswer = "yes";
         }
-
-        Scanner primeScanner = new Scanner(System.in);
-        System.out.println("Question: " + outputNumber);
-        System.out.print("Your answer: ");
-        String playerAnswer = primeScanner.next();
-        Engine.isCorrectAnswer(playerAnswer, correctAnswer, playerName);
+        return correctAnswer;
     }
 }

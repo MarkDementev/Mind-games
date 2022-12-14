@@ -1,5 +1,10 @@
 package hexlet.code;
 
+import hexlet.code.games.Calculator;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 import java.util.Scanner;
 
 public class App {
@@ -21,31 +26,24 @@ public class App {
     }
 
     static void startSelectedGame(String playerInteractionType) {
-        String playerName;
-
         switch (playerInteractionType) {
             case "1":
                 Cli.meetPlayer();
                 break;
             case "2":
-                playerName = Cli.meetPlayer();
-                Engine.makeStartRoundsFinalize(playerName, 2);
+                Even.playEvenGame();
                 break;
             case "3":
-                playerName = Cli.meetPlayer();
-                Engine.makeStartRoundsFinalize(playerName, 3);
+                Calculator.playCalculatorGame();
                 break;
             case "4":
-                playerName = Cli.meetPlayer();
-                Engine.makeStartRoundsFinalize(playerName, 4);
+                GCD.playGCDGame();
                 break;
             case "5":
-                playerName = Cli.meetPlayer();
-                Engine.makeStartRoundsFinalize(playerName, 5);
+                Progression.playProgressionGame();
                 break;
             case "6":
-                playerName = Cli.meetPlayer();
-                Engine.makeStartRoundsFinalize(playerName, 6);
+                Prime.playPrimeGame();
                 break;
             case "0":
                 System.out.println("Good bye!");
