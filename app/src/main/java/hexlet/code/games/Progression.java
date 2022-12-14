@@ -42,7 +42,6 @@ public class Progression {
         String[] progressionAnswerArr = question.split(" ");
         int correctAnswerIndex = 0;
         int correctAnswer;
-        int progressionStep;
 
         for (int i3 = 0; i3 < progressionAnswerArr.length; i3++) {
             if (progressionAnswerArr[i3].equals("..")) {
@@ -51,17 +50,17 @@ public class Progression {
         }
 
         if (correctAnswerIndex == 0) {
-            progressionStep = (Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 2])
+            correctAnswer = Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1])
+                    - (Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 2])
                     - Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1]));
-            correctAnswer = Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1]) - progressionStep;
         } else if (correctAnswerIndex == progressionAnswerArr.length - 1) {
-            progressionStep = (Integer.parseInt(progressionAnswerArr[correctAnswerIndex - 1])
+            correctAnswer = Integer.parseInt(progressionAnswerArr[correctAnswerIndex - 1])
+                    + (Integer.parseInt(progressionAnswerArr[correctAnswerIndex - 1])
                     - Integer.parseInt(progressionAnswerArr[correctAnswerIndex - 2]));
-            correctAnswer = Integer.parseInt(progressionAnswerArr[correctAnswerIndex - 1]) + progressionStep;
         } else {
-            progressionStep = (Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1])
+            correctAnswer = Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1])
+                    - (Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1])
                     - Integer.parseInt(progressionAnswerArr[correctAnswerIndex - 1])) / 2;
-            correctAnswer = Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1]) - progressionStep;
         }
         return Integer.toString(correctAnswer);
     }
