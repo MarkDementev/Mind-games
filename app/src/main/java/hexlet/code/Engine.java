@@ -88,11 +88,12 @@ public class Engine {
         if (playerAnswer.equals(correctAnswer)) {
             System.out.println("Correct!");
             System.out.println("Congratulations, " + Engine.playerName + "!");
+        } else {
+            System.out.println("'" + playerAnswer + "'"
+                    + " is wrong answer ;(. Correct answer was"
+                    + " '" + correctAnswer + "'.");
+            System.out.println("Let's try again, " + Engine.playerName + "!");
+            System.exit(0);
         }
-        System.out.println("'" + playerAnswer + "'"
-                + " is wrong answer ;(. Correct answer was"
-                + " '" + correctAnswer + "'.");
-        System.out.println("Let's try again, " + Engine.playerName + "!");
-        System.exit(0);
     }
 }
