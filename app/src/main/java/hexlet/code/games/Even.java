@@ -4,11 +4,12 @@ import hexlet.code.Engine;
 import hexlet.code.RandomUtils;
 
 public class Even {
+    public static final int EVEN_GAME_SEQUENCE_NUMBER = 2;
     public static final String EVEN_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public static void playEvenGame() {
         Engine.playerIntroduction();
-        Engine.showGameRule(2);
-        Engine.askQuestionsToEnd(2);
+        Engine.showGameRule(EVEN_GAME_SEQUENCE_NUMBER);
+        Engine.askQuestionsToEnd(EVEN_GAME_SEQUENCE_NUMBER);
     }
 
     public static String generateEvenQuestion() {

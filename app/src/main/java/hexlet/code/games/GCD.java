@@ -4,12 +4,13 @@ import hexlet.code.Engine;
 import hexlet.code.RandomUtils;
 
 public class GCD {
+    public static final int GCD_GAME_SEQUENCE_NUMBER = 4;
     public static final String GCD_RULE = "Find the greatest common divisor of given numbers.";
 
     public static void playGCDGame() {
         Engine.playerIntroduction();
-        Engine.showGameRule(4);
-        Engine.askQuestionsToEnd(4);
+        Engine.showGameRule(GCD_GAME_SEQUENCE_NUMBER);
+        Engine.askQuestionsToEnd(GCD_GAME_SEQUENCE_NUMBER);
     }
 
     public static String generateGCDQuestion() {

@@ -21,16 +21,16 @@ public class Engine {
 
     public static void showGameRule(int gameType) {
         switch (gameType) {
-            case 2:
+            case Even.EVEN_GAME_SEQUENCE_NUMBER:
                 System.out.println(Even.EVEN_RULE);
                 break;
-            case 3:
+            case Calculator.CALCULATOR_GAME_SEQUENCE_NUMBER:
                 System.out.println(Calculator.CALCULATOR_RULE);
                 break;
-            case 4:
+            case GCD.GCD_GAME_SEQUENCE_NUMBER:
                 System.out.println(GCD.GCD_RULE);
                 break;
-            case 5:
+            case Progression.PROGRESSION_GAME_SEQUENCE_NUMBER:
                 System.out.println(Progression.PROGRESSION_RULE);
                 break;
             default:
@@ -44,19 +44,19 @@ public class Engine {
         String playerAnswer;
         for (int correctAnswersCount = 0; correctAnswersCount < ROUND_COUNT; correctAnswersCount++) {
             switch (gameType) {
-                case 2:
+                case Even.EVEN_GAME_SEQUENCE_NUMBER:
                     question = Even.generateEvenQuestion();
                     correctAnswer = Even.generateEvenCorrectAnswer(question);
                     break;
-                case 3:
+                case Calculator.CALCULATOR_GAME_SEQUENCE_NUMBER:
                     question = Calculator.generateCalculatorQuestion();
                     correctAnswer = Calculator.generateCalculatorCorrectAnswer(question);
                     break;
-                case 4:
+                case GCD.GCD_GAME_SEQUENCE_NUMBER:
                     question = GCD.generateGCDQuestion();
                     correctAnswer = GCD.generateGCDCorrectAnswer(question);
                     break;
-                case 5:
+                case Progression.PROGRESSION_GAME_SEQUENCE_NUMBER:
                     question = Progression.generateProgressionQuestion();
                     correctAnswer = Progression.generateProgressionCorrectAnswer(question);
                     break;

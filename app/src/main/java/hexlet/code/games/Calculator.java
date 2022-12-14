@@ -4,11 +4,12 @@ import hexlet.code.Engine;
 import hexlet.code.RandomUtils;
 
 public class Calculator {
+    public static final int CALCULATOR_GAME_SEQUENCE_NUMBER = 3;
     public static final String CALCULATOR_RULE = "What is the result of the expression?";
     public static void playCalculatorGame() {
         Engine.playerIntroduction();
-        Engine.showGameRule(3);
-        Engine.askQuestionsToEnd(3);
+        Engine.showGameRule(CALCULATOR_GAME_SEQUENCE_NUMBER);
+        Engine.askQuestionsToEnd(CALCULATOR_GAME_SEQUENCE_NUMBER);
     }
 
     public static String generateCalculatorQuestion() {

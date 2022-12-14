@@ -5,12 +5,13 @@ import hexlet.code.RandomUtils;
 import java.util.Arrays;
 
 public class Progression {
+    public static final int PROGRESSION_GAME_SEQUENCE_NUMBER = 5;
     public static final String PROGRESSION_RULE = "What number is missing in the progression?";
 
     public static void playProgressionGame() {
         Engine.playerIntroduction();
-        Engine.showGameRule(5);
-        Engine.askQuestionsToEnd(5);
+        Engine.showGameRule(PROGRESSION_GAME_SEQUENCE_NUMBER);
+        Engine.askQuestionsToEnd(PROGRESSION_GAME_SEQUENCE_NUMBER);
     }
 
     public static String generateProgressionQuestion() {
