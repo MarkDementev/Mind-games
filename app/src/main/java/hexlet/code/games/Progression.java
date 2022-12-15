@@ -63,7 +63,7 @@ public class Progression {
         } else {
             return (Integer.parseInt(progressionAnswerArr[progressionAnswerArr.length - 1])
                     - Integer.parseInt(progressionAnswerArr[0]))
-                    / progressionAnswerArr.length - 1;
+                    / (progressionAnswerArr.length - 1);
         }
     }
 }
