@@ -49,18 +49,14 @@ public class Progression {
             }
         }
 
-        if (correctAnswerIndex == 0) {
-            correctAnswer = Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1])
-                    - (Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 2])
-                    - Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1]));
-        } else if (correctAnswerIndex == progressionAnswerArr.length - 1) {
-            correctAnswer = Integer.parseInt(progressionAnswerArr[correctAnswerIndex - 1])
-                    + (Integer.parseInt(progressionAnswerArr[correctAnswerIndex - 1])
-                    - Integer.parseInt(progressionAnswerArr[correctAnswerIndex - 2]));
+        if (correctAnswerIndex == 0 || correctAnswerIndex == progressionAnswerArr.length - 1) {
+            // Т к по условию не менее 5 эл-в в массиве, всегда будут 3 и 4 эл-ты
+            correctAnswer = Integer.parseInt(progressionAnswerArr[3]) - Integer.parseInt(progressionAnswerArr[2]);
         } else {
-            correctAnswer = Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1])
-                    - (Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1])
-                    - Integer.parseInt(progressionAnswerArr[correctAnswerIndex - 1])) / 2;
+            // т к не знаем, где пустой, из последнего эл-та вычтем первый и поделим на (их число - 1)
+            correctAnswer = Integer.parseInt(progressionAnswerArr[progressionAnswerArr.length - 1])
+                    - Integer.parseInt(progressionAnswerArr[0])
+                    / progressionAnswerArr.length - 1;
         }
         return Integer.toString(correctAnswer);
     }
