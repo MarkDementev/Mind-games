@@ -41,23 +41,29 @@ public class Progression {
     public static String generateProgressionCorrectAnswer(String question) {
         String[] progressionAnswerArr = question.split(" ");
         int correctAnswerIndex = 0;
-        int correctAnswer;
+        int progressionStep;
 
         for (int i3 = 0; i3 < progressionAnswerArr.length; i3++) {
             if (progressionAnswerArr[i3].equals("..")) {
                 correctAnswerIndex = i3;
             }
         }
+        progressionStep = findProgressionStep(correctAnswerIndex, progressionAnswerArr);
 
-        if (correctAnswerIndex == 0 || correctAnswerIndex == progressionAnswerArr.length - 1) {
-            // Т к по условию не менее 5 эл-в в массиве, всегда будут 3 и 4 эл-ты
-            correctAnswer = Integer.parseInt(progressionAnswerArr[3]) - Integer.parseInt(progressionAnswerArr[2]);
+        if (correctAnswerIndex == progressionAnswerArr.length - 1) {
+            return Integer.toString(Integer.parseInt(progressionAnswerArr[correctAnswerIndex - 1]) + progressionStep);
         } else {
-            // т к не знаем, где пустой, из последнего эл-та вычтем первый и поделим на (их число - 1)
-            correctAnswer = Integer.parseInt(progressionAnswerArr[progressionAnswerArr.length - 1])
+            return Integer.toString(Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1]) - progressionStep);
+        }
+    }
+
+    private static int findProgressionStep(int correctAnswerIndex, String[] progressionAnswerArr) {
+        if (correctAnswerIndex == 0 || correctAnswerIndex == progressionAnswerArr.length - 1) {
+            return Integer.parseInt(progressionAnswerArr[3]) - Integer.parseInt(progressionAnswerArr[2]);
+        } else {
+            return Integer.parseInt(progressionAnswerArr[progressionAnswerArr.length - 1])
                     - Integer.parseInt(progressionAnswerArr[0])
                     / progressionAnswerArr.length - 1;
         }
-        return Integer.toString(correctAnswer);
     }
 }
