@@ -58,13 +58,15 @@ public class Progression {
     }
 
     private static int findProgressionStep(int correctAnswerIndex, String[] progressionAnswerArr) {
-        if (correctAnswerIndex == 0 || correctAnswerIndex == progressionAnswerArr.length - 1) {
-            return Integer.parseInt(progressionAnswerArr[progressionAnswerArr.length - 2])
-                    - Integer.parseInt(progressionAnswerArr[progressionAnswerArr.length - 3]);
+        int finalArrElementIndex = progressionAnswerArr.length - 1;
+
+        if (correctAnswerIndex == 0 || correctAnswerIndex == finalArrElementIndex) {
+            return Integer.parseInt(progressionAnswerArr[finalArrElementIndex - 1])
+                    - Integer.parseInt(progressionAnswerArr[finalArrElementIndex - 2]);
         } else {
-            return (Integer.parseInt(progressionAnswerArr[progressionAnswerArr.length - 1])
+            return (Integer.parseInt(progressionAnswerArr[finalArrElementIndex])
                     - Integer.parseInt(progressionAnswerArr[0]))
-                    / (progressionAnswerArr.length - 1);
+                    / (finalArrElementIndex);
         }
     }
 }
