@@ -59,7 +59,8 @@ public class Progression {
 
     private static int findProgressionStep(int correctAnswerIndex, String[] progressionAnswerArr) {
         if (correctAnswerIndex == 0 || correctAnswerIndex == progressionAnswerArr.length - 1) {
-            return Integer.parseInt(progressionAnswerArr[3]) - Integer.parseInt(progressionAnswerArr[2]);
+            return Integer.parseInt(progressionAnswerArr[progressionAnswerArr.length - 2])
+                    - Integer.parseInt(progressionAnswerArr[progressionAnswerArr.length - 3]);
         } else {
             return (Integer.parseInt(progressionAnswerArr[progressionAnswerArr.length - 1])
                     - Integer.parseInt(progressionAnswerArr[0]))
