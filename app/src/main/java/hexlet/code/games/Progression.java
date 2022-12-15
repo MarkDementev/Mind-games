@@ -61,8 +61,8 @@ public class Progression {
         if (correctAnswerIndex == 0 || correctAnswerIndex == progressionAnswerArr.length - 1) {
             return Integer.parseInt(progressionAnswerArr[3]) - Integer.parseInt(progressionAnswerArr[2]);
         } else {
-            return Integer.parseInt(progressionAnswerArr[progressionAnswerArr.length - 1])
-                    - Integer.parseInt(progressionAnswerArr[0])
+            return (Integer.parseInt(progressionAnswerArr[progressionAnswerArr.length - 1])
+                    - Integer.parseInt(progressionAnswerArr[0]))
                     / progressionAnswerArr.length - 1;
         }
     }
