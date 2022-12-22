@@ -13,7 +13,7 @@ public class Prime {
     }
 
     public static String generatePrimeQuestion() {
-        return Integer.toString(RandomUtils.generateRandomNumber());
+        return String.valueOf(RandomUtils.generateRandomNumber());
     }
 
     public static String generatePrimeCorrectAnswer(String question) {

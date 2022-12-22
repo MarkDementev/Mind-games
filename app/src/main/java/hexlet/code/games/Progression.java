@@ -29,7 +29,7 @@ public class Progression {
         }
 
         for (int i2 = 0; i2 < arrLength; i2++) {
-            progressionArr[i2] = Integer.toString(intProgressionArr[i2]);
+            progressionArr[i2] = String.valueOf(intProgressionArr[i2]);
         }
         progressionArr[emptyPlaceNumber] = "..";
         return Arrays.toString(progressionArr)
@@ -51,9 +51,9 @@ public class Progression {
         progressionStep = findProgressionStep(correctAnswerIndex, progressionAnswerArr);
 
         if (correctAnswerIndex == progressionAnswerArr.length - 1) {
-            return Integer.toString(Integer.parseInt(progressionAnswerArr[correctAnswerIndex - 1]) + progressionStep);
+            return String.valueOf(Integer.parseInt(progressionAnswerArr[correctAnswerIndex - 1]) + progressionStep);
         } else {
-            return Integer.toString(Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1]) - progressionStep);
+            return String.valueOf(Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1]) - progressionStep);
         }
     }
 

@@ -21,7 +21,7 @@ public class GCD {
 
     public static String generateGCDCorrectAnswer(String question) {
         String[] gCDArr = question.split(" ");
-        return "" + findGCD(Integer.parseInt(gCDArr[0]), Integer.parseInt(gCDArr[1]));
+        return String.valueOf(findGCD(Integer.parseInt(gCDArr[0]), Integer.parseInt(gCDArr[1])));
     }
 
     static int findGCD(int firstOutputElement, int secondOutputElement) {
