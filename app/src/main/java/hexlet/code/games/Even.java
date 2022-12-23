@@ -22,7 +22,7 @@ public class Even {
         return isEvenNumber(questionToInt);
     }
 
-    static String isEvenNumber(int inputNumber) {
+    public static String isEvenNumber(int inputNumber) {
         String correctAnswer = "no";
 
         if (inputNumber % 2 == 0) {

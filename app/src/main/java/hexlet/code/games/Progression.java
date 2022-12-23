@@ -16,7 +16,7 @@ public class Progression {
         Engine.askQuestionsToEnd(PROGRESSION_GAME_SEQUENCE_NUMBER);
     }
 
-    public static String generateProgressionQuestion() {
+    public static String[] formProgression() {
         int arrLength = RandomUtils.generateRandomNumber(PROGRESSION_MIN_SIZE, PROGRESSION_MAX_SIZE);
         int emptyPlaceNumber = RandomUtils.generateRandomNumber(0, arrLength - 1);
         int progressionStep = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
@@ -35,6 +35,11 @@ public class Progression {
             progressionArr[i2] = String.valueOf(intProgressionArr[i2]);
         }
         progressionArr[emptyPlaceNumber] = "..";
+        return progressionArr;
+    }
+
+    public static String generateProgressionQuestion() {
+        String[] progressionArr = formProgression();
         return Arrays.toString(progressionArr)
                 .replace(",", "")
                 .replace("[", "")
