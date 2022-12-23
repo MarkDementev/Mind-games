@@ -6,7 +6,8 @@ import hexlet.code.RandomUtils;
 public class GCD {
     public static final int GCD_GAME_SEQUENCE_NUMBER = 4;
     public static final String GCD_RULE = "Find the greatest common divisor of given numbers.";
-
+    private static final int GCD_LOWER_BORDER = 1;
+    //добавил значение мин. границы, чтобы пользователю выпадали ненулевые значения
     public static void playGCDGame() {
         Engine.playerIntroduction();
         Engine.showGameRule(GCD_GAME_SEQUENCE_NUMBER);
@@ -14,8 +15,10 @@ public class GCD {
     }
 
     public static String generateGCDQuestion() {
-        int firstOutputElement = RandomUtils.generateRandomNumber();
-        int secondOutputElement = RandomUtils.generateRandomNumber();
+        int firstOutputElement = RandomUtils.generateRandomNumber(GCD_LOWER_BORDER,
+                RandomUtils.DEFAULT_UPPER_BORDER);
+        int secondOutputElement = RandomUtils.generateRandomNumber(GCD_LOWER_BORDER,
+                RandomUtils.DEFAULT_UPPER_BORDER);
         return firstOutputElement + " " + secondOutputElement;
     }
 

@@ -13,7 +13,8 @@ public class Even {
     }
 
     public static String generateEvenQuestion() {
-        return String.valueOf(RandomUtils.generateRandomNumber());
+        return String.valueOf(RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
+                RandomUtils.DEFAULT_UPPER_BORDER));
     }
 
     public static String generateEvenCorrectAnswer(String question) {

@@ -6,6 +6,9 @@ import hexlet.code.RandomUtils;
 public class Prime {
     public static final int PRIME_GAME_SEQUENCE_NUMBER = 6;
     public static final String PRIME_RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
+    private static final int PRIME_UPPER_BORDER = 3571;
+    //т.к. в Википедии дан список до 3571, поставлю это число границей, хотя есть и больше
+
     public static void playPrimeGame() {
         Engine.playerIntroduction();
         Engine.showGameRule(PRIME_GAME_SEQUENCE_NUMBER);
@@ -13,14 +16,14 @@ public class Prime {
     }
 
     public static String generatePrimeQuestion() {
-        return String.valueOf(RandomUtils.generateRandomNumber());
+        return String.valueOf(RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER, PRIME_UPPER_BORDER));
     }
 
     public static String generatePrimeCorrectAnswer(String question) {
         String correctAnswer = "no";
         int noOneDividerCounts = 0;
 
-        for (int i = 2; i <= RandomUtils.RANDOM_NUMBER_UPPER_BORDER; i++) {
+        for (int i = 2; i <= PRIME_UPPER_BORDER; i++) {
             if (Integer.parseInt(question) % i == 0) {
                 noOneDividerCounts++;
             }
