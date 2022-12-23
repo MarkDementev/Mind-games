@@ -47,11 +47,11 @@ public class Calculator {
 
         switch (arraySeparator) {
             case " \\+ ":
-                return firstAnswerCalculationElement + secondAnswerCalculationElement + "";
+                return String.valueOf(firstAnswerCalculationElement + secondAnswerCalculationElement);
             case " - ":
-                return firstAnswerCalculationElement - secondAnswerCalculationElement + "";
+                return String.valueOf(firstAnswerCalculationElement - secondAnswerCalculationElement);
             default:
-                return firstAnswerCalculationElement * secondAnswerCalculationElement + "";
+                return String.valueOf(firstAnswerCalculationElement * secondAnswerCalculationElement);
         }
     }
 }

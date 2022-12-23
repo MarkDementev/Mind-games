@@ -18,9 +18,13 @@ public class Even {
 
     public static String generateEvenCorrectAnswer(String question) {
         int questionToInt = Integer.parseInt(question);
+        return isEvenNumber(questionToInt);
+    }
+
+    static String isEvenNumber(int inputNumber) {
         String correctAnswer = "no";
 
-        if (questionToInt % 2 == 0) {
+        if (inputNumber % 2 == 0) {
             correctAnswer = "yes";
         }
         return correctAnswer;
