@@ -8,9 +8,9 @@ import hexlet.code.games.Progression;
 import hexlet.code.games.Prime;
 
 public class GameDataToEnginePreparer {
+    public static String[] gameQuestions = new String[Engine.ROUND_COUNT];
+    public static String[] gameAnswers = new String[Engine.ROUND_COUNT];
     public static void formQuestionsAnswersThenRunEngine(String gameType, String gameRule) {
-        String[] gameQuestions = new String[Engine.ROUND_COUNT];
-        String[] gameAnswers = new String[Engine.ROUND_COUNT];
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
             switch (gameType) {
                 case "Even":
