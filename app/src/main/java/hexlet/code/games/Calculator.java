@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-import hexlet.code.helperClasses.QuestionAnswersFormer;
+import hexlet.code.helperClasses.GameDataToEnginePreparer;
 import hexlet.code.helperClasses.RandomUtils;
 
 public class Calculator {
@@ -13,10 +12,7 @@ public class Calculator {
     //прописываю диапазон генерации элементов [2;50], чтобы упростить пользователю счёт "в уме"
     //но начал его с 2, чтобы не пришлось без интереса пользователю умножать на 0 или 1
     public static void playCalculatorGame() {
-        String[] calculatorGameQuestions = QuestionAnswersFormer.formQuestionsArr("Calculator");
-        String[] calculatorGameCorrectAnswers = QuestionAnswersFormer.formAnswersArr("Calculator",
-                calculatorGameQuestions);
-        Engine.runGame(CALCULATOR_RULE, calculatorGameQuestions, calculatorGameCorrectAnswers);
+        GameDataToEnginePreparer.formQuestionsAnswersThenRunEngine("Calculator", CALCULATOR_RULE);
     }
 
     public static String generateCalculatorQuestion() {

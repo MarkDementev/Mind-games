@@ -1,15 +1,12 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-import hexlet.code.helperClasses.QuestionAnswersFormer;
+import hexlet.code.helperClasses.GameDataToEnginePreparer;
 import hexlet.code.helperClasses.RandomUtils;
 
 public class Even {
     public static final String EVEN_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
     public static void playEvenGame() {
-        String[] evenGameQuestions = QuestionAnswersFormer.formQuestionsArr("Even");
-        String[] evenGameCorrectAnswers = QuestionAnswersFormer.formAnswersArr("Even", evenGameQuestions);
-        Engine.runGame(EVEN_RULE, evenGameQuestions, evenGameCorrectAnswers);
+        GameDataToEnginePreparer.formQuestionsAnswersThenRunEngine("Even", EVEN_RULE);
     }
 
     public static String generateEvenQuestion() {

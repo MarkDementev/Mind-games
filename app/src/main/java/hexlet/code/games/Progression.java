@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-import hexlet.code.helperClasses.QuestionAnswersFormer;
+import hexlet.code.helperClasses.GameDataToEnginePreparer;
 import hexlet.code.helperClasses.RandomUtils;
 import java.util.Arrays;
 
@@ -11,18 +10,7 @@ public class Progression {
     private static final int PROGRESSION_MAX_SIZE = 10;
 
     public static void playProgressionGame() {
-        String[] progressionGameQuestions = QuestionAnswersFormer.formQuestionsArr("Progression");
-        String[] progressionGameCorrectAnswers = QuestionAnswersFormer.formAnswersArr("Progression",
-                progressionGameQuestions);
-        Engine.runGame(PROGRESSION_RULE, progressionGameQuestions, progressionGameCorrectAnswers);
-    }
-
-    public static void playProgressionGame(String[] questions, String[] correctAnswers) {
-        for (int i = 0; i < Engine.ROUND_COUNT; i++) {
-            questions[i] = generateProgressionQuestion();
-            correctAnswers[i] = generateProgressionCorrectAnswer(questions[i]);
-        }
-        Engine.runGame(PROGRESSION_RULE, questions, correctAnswers);
+        GameDataToEnginePreparer.formQuestionsAnswersThenRunEngine("Progression", PROGRESSION_RULE);
     }
 
     public static String[] formProgression() {

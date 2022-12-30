@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-import hexlet.code.helperClasses.QuestionAnswersFormer;
+import hexlet.code.helperClasses.GameDataToEnginePreparer;
 import hexlet.code.helperClasses.RandomUtils;
 
 public class Prime {
@@ -10,10 +9,7 @@ public class Prime {
     //т.к. в Википедии дан список простых чисел до 3571, поставлю это число верх. границей
 
     public static void playPrimeGame() {
-        String[] primeGameQuestions = QuestionAnswersFormer.formQuestionsArr("Prime");
-        String[] primeGameCorrectAnswers = QuestionAnswersFormer.formAnswersArr("Prime",
-                primeGameQuestions);
-        Engine.runGame(PRIME_RULE, primeGameQuestions, primeGameCorrectAnswers);
+        GameDataToEnginePreparer.formQuestionsAnswersThenRunEngine("Prime", PRIME_RULE);
     }
 
     public static String generatePrimeQuestion() {

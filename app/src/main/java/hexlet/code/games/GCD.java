@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.code.Engine;
-import hexlet.code.helperClasses.QuestionAnswersFormer;
+import hexlet.code.helperClasses.GameDataToEnginePreparer;
 import hexlet.code.helperClasses.RandomUtils;
 
 public class GCD {
@@ -9,10 +8,7 @@ public class GCD {
     private static final int GCD_LOWER_BORDER = 1;
     //добавил значение мин. границы, чтобы пользователю выпадали ненулевые значения
     public static void playGCDGame() {
-        String[] gCDGameQuestions = QuestionAnswersFormer.formQuestionsArr("GCD");
-        String[] gCDGameCorrectAnswers = QuestionAnswersFormer.formAnswersArr("GCD",
-                gCDGameQuestions);
-        Engine.runGame(GCD_RULE, gCDGameQuestions, gCDGameCorrectAnswers);
+        GameDataToEnginePreparer.formQuestionsAnswersThenRunEngine("GCD", GCD_RULE);
     }
 
     public static String generateGCDQuestion() {
