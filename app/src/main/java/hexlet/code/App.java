@@ -19,31 +19,16 @@ public class App {
         playerInteractionScanner.close();
     }
 
-    static void startSelectedGame(String playerInteractionType) {
+    private static void startSelectedGame(String playerInteractionType) {
         switch (playerInteractionType) {
-            case "1":
-                Cli.meetPlayer();
-                break;
-            case "2":
-                Even.playEvenGame();
-                break;
-            case "3":
-                Calculator.playCalculatorGame();
-                break;
-            case "4":
-                GCD.playGCDGame();
-                break;
-            case "5":
-                Progression.playProgressionGame();
-                break;
-            case "6":
-                Prime.playPrimeGame();
-                break;
-            case "0":
-                System.out.println("Good bye!");
-                break;
-            default:
-                System.out.println("Please, input only 1 or 0.");
+            case "1" -> Cli.meetPlayer();
+            case "2" -> Even.playEvenGame();
+            case "3" -> Calculator.playCalculatorGame();
+            case "4" -> GCD.playGCDGame();
+            case "5" -> Progression.playProgressionGame();
+            case "6" -> Prime.playPrimeGame();
+            case "0" -> System.out.println("Good bye!");
+            default -> System.out.println("Please, input only 1 or 0.");
         }
     }
 }
