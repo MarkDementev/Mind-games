@@ -5,15 +5,18 @@ import hexlet.code.RandomUtils;
 import java.util.Arrays;
 
 public class Progression {
-    public static final int PROGRESSION_GAME_SEQUENCE_NUMBER = 5;
     public static final String PROGRESSION_RULE = "What number is missing in the progression?";
     private static final int PROGRESSION_MIN_SIZE = 5;
     private static final int PROGRESSION_MAX_SIZE = 10;
 
     public static void playProgressionGame() {
-        Engine.playerIntroduction();
-        Engine.showGameRule(PROGRESSION_GAME_SEQUENCE_NUMBER);
-        Engine.askQuestionsToEnd(PROGRESSION_GAME_SEQUENCE_NUMBER);
+        String[] questions = new String[Engine.ROUND_COUNT];
+        String[] correctAnswers = new String[Engine.ROUND_COUNT];
+        for (int i = 0; i < Engine.ROUND_COUNT; i++) {
+            questions[i] = generateProgressionQuestion();
+            correctAnswers[i] = generateProgressionCorrectAnswer(questions[i]);
+        }
+        Engine.runGame(PROGRESSION_RULE, questions, correctAnswers);
     }
 
     public static String[] formProgression() {

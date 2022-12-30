@@ -10,9 +10,13 @@ public class Prime {
     //т.к. в Википедии дан список простых чисел до 3571, поставлю это число верх. границей
 
     public static void playPrimeGame() {
-        Engine.playerIntroduction();
-        Engine.showGameRule(PRIME_GAME_SEQUENCE_NUMBER);
-        Engine.askQuestionsToEnd(PRIME_GAME_SEQUENCE_NUMBER);
+        String[] questions = new String[Engine.ROUND_COUNT];
+        String[] correctAnswers = new String[Engine.ROUND_COUNT];
+        for (int i = 0; i < Engine.ROUND_COUNT; i++) {
+            questions[i] = generatePrimeQuestion();
+            correctAnswers[i] = generatePrimeCorrectAnswer(questions[i]);
+        }
+        Engine.runGame(PRIME_RULE, questions, correctAnswers);
     }
 
     public static String generatePrimeQuestion() {

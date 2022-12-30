@@ -4,7 +4,6 @@ import hexlet.code.Engine;
 import hexlet.code.RandomUtils;
 
 public class Calculator {
-    public static final int CALCULATOR_GAME_SEQUENCE_NUMBER = 3;
     public static final String CALCULATOR_RULE = "What is the result of the expression?";
     public static final int FIRST_PERCENT_BORDER = 33;
     public static final int SECOND_PERCENT_BORDER = 67;
@@ -13,9 +12,13 @@ public class Calculator {
     //прописываю диапазон генерации элементов [2;50], чтобы упростить пользователю счёт "в уме"
     //но начал его с 2, чтобы не пришлось без интереса пользователю умножать на 0 или 1
     public static void playCalculatorGame() {
-        Engine.playerIntroduction();
-        Engine.showGameRule(CALCULATOR_GAME_SEQUENCE_NUMBER);
-        Engine.askQuestionsToEnd(CALCULATOR_GAME_SEQUENCE_NUMBER);
+        String[] questions = new String[Engine.ROUND_COUNT];
+        String[] correctAnswers = new String[Engine.ROUND_COUNT];
+        for (int i = 0; i < Engine.ROUND_COUNT; i++) {
+            questions[i] = generateCalculatorQuestion();
+            correctAnswers[i] = generateCalculatorCorrectAnswer(questions[i]);
+        }
+        Engine.runGame(CALCULATOR_RULE, questions, correctAnswers);
     }
 
     public static String generateCalculatorQuestion() {
