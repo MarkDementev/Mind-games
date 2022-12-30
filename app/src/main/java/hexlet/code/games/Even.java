@@ -5,12 +5,15 @@ import hexlet.code.RandomUtils;
 
 public class Even {
     public static final String EVEN_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    public static void playEvenGame(String[] questions, String[] correctAnswers) {
+    public static void playEvenGame() {
+        String[] evenGameQuestions = new String[Engine.ROUND_COUNT];
+        String[] evenGameCorrectAnswers = new String[Engine.ROUND_COUNT];
+
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
-            questions[i] = generateEvenQuestion();
-            correctAnswers[i] = generateEvenCorrectAnswer(questions[i]);
+            evenGameQuestions[i] = generateEvenQuestion();
+            evenGameCorrectAnswers[i] = generateEvenCorrectAnswer(evenGameQuestions[i]);
         }
-        Engine.runGame(EVEN_RULE, questions, correctAnswers);
+        Engine.runGame(EVEN_RULE, evenGameQuestions, evenGameCorrectAnswers);
     }
 
     public static String generateEvenQuestion() {
