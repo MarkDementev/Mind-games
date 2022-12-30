@@ -1,21 +1,19 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.RandomUtils;
+import hexlet.code.helperClasses.QuestionAnswersFormer;
+import hexlet.code.helperClasses.RandomUtils;
 import java.util.Arrays;
 
 public class Progression {
     public static final String PROGRESSION_RULE = "What number is missing in the progression?";
     private static final int PROGRESSION_MIN_SIZE = 5;
     private static final int PROGRESSION_MAX_SIZE = 10;
-    static String[] progressionGameQuestions = new String[Engine.ROUND_COUNT];
-    static String[] progressionGameCorrectAnswers = new String[Engine.ROUND_COUNT];
 
     public static void playProgressionGame() {
-        for (int i = 0; i < Engine.ROUND_COUNT; i++) {
-            progressionGameQuestions[i] = generateProgressionQuestion();
-            progressionGameCorrectAnswers[i] = generateProgressionCorrectAnswer(progressionGameQuestions[i]);
-        }
+        String[] progressionGameQuestions = QuestionAnswersFormer.formQuestionsArr("Progression");
+        String[] progressionGameCorrectAnswers = QuestionAnswersFormer.formAnswersArr("Progression",
+                progressionGameQuestions);
         Engine.runGame(PROGRESSION_RULE, progressionGameQuestions, progressionGameCorrectAnswers);
     }
 

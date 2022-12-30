@@ -1,7 +1,8 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.RandomUtils;
+import hexlet.code.helperClasses.QuestionAnswersFormer;
+import hexlet.code.helperClasses.RandomUtils;
 
 public class Calculator {
     public static final String CALCULATOR_RULE = "What is the result of the expression?";
@@ -11,13 +12,10 @@ public class Calculator {
     private static final int CALCULATOR_UPPER_BORDER = 50;
     //прописываю диапазон генерации элементов [2;50], чтобы упростить пользователю счёт "в уме"
     //но начал его с 2, чтобы не пришлось без интереса пользователю умножать на 0 или 1
-    static String[] calculatorGameQuestions = new String[Engine.ROUND_COUNT];
-    static String[] calculatorGameCorrectAnswers = new String[Engine.ROUND_COUNT];
     public static void playCalculatorGame() {
-        for (int i = 0; i < Engine.ROUND_COUNT; i++) {
-            calculatorGameQuestions[i] = generateCalculatorQuestion();
-            calculatorGameCorrectAnswers[i] = generateCalculatorCorrectAnswer(calculatorGameQuestions[i]);
-        }
+        String[] calculatorGameQuestions = QuestionAnswersFormer.formQuestionsArr("Calculator");
+        String[] calculatorGameCorrectAnswers = QuestionAnswersFormer.formAnswersArr("Calculator",
+                calculatorGameQuestions);
         Engine.runGame(CALCULATOR_RULE, calculatorGameQuestions, calculatorGameCorrectAnswers);
     }
 

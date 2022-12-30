@@ -1,19 +1,17 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.RandomUtils;
+import hexlet.code.helperClasses.QuestionAnswersFormer;
+import hexlet.code.helperClasses.RandomUtils;
 
 public class GCD {
     public static final String GCD_RULE = "Find the greatest common divisor of given numbers.";
     private static final int GCD_LOWER_BORDER = 1;
     //добавил значение мин. границы, чтобы пользователю выпадали ненулевые значения
-    static String[] gCDGameQuestions = new String[Engine.ROUND_COUNT];
-    static String[] gCDGameCorrectAnswers = new String[Engine.ROUND_COUNT];
     public static void playGCDGame() {
-        for (int i = 0; i < Engine.ROUND_COUNT; i++) {
-            gCDGameQuestions[i] = generateGCDQuestion();
-            gCDGameCorrectAnswers[i] = generateGCDCorrectAnswer(gCDGameQuestions[i]);
-        }
+        String[] gCDGameQuestions = QuestionAnswersFormer.formQuestionsArr("GCD");
+        String[] gCDGameCorrectAnswers = QuestionAnswersFormer.formAnswersArr("GCD",
+                gCDGameQuestions);
         Engine.runGame(GCD_RULE, gCDGameQuestions, gCDGameCorrectAnswers);
     }
 

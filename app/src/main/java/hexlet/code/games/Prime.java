@@ -1,20 +1,18 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.RandomUtils;
+import hexlet.code.helperClasses.QuestionAnswersFormer;
+import hexlet.code.helperClasses.RandomUtils;
 
 public class Prime {
     public static final String PRIME_RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
     private static final int PRIME_UPPER_BORDER = 3571;
     //т.к. в Википедии дан список простых чисел до 3571, поставлю это число верх. границей
-    static String[] primeGameQuestions = new String[Engine.ROUND_COUNT];
-    static String[] primeGameCorrectAnswers = new String[Engine.ROUND_COUNT];
 
     public static void playPrimeGame() {
-        for (int i = 0; i < Engine.ROUND_COUNT; i++) {
-            primeGameQuestions[i] = generatePrimeQuestion();
-            primeGameCorrectAnswers[i] = generatePrimeCorrectAnswer(primeGameQuestions[i]);
-        }
+        String[] primeGameQuestions = QuestionAnswersFormer.formQuestionsArr("Prime");
+        String[] primeGameCorrectAnswers = QuestionAnswersFormer.formAnswersArr("Prime",
+                primeGameQuestions);
         Engine.runGame(PRIME_RULE, primeGameQuestions, primeGameCorrectAnswers);
     }
 

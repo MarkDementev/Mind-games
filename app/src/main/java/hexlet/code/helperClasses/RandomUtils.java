@@ -1,4 +1,5 @@
-package hexlet.code;
+package hexlet.code.helperClasses;
+
 public class RandomUtils {
     public static final int DEFAULT_LOWER_BORDER = 0;
     public static final int DEFAULT_UPPER_BORDER = 100;
