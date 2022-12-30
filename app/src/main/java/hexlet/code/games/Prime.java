@@ -8,9 +8,7 @@ public class Prime {
     private static final int PRIME_UPPER_BORDER = 3571;
     //т.к. в Википедии дан список простых чисел до 3571, поставлю это число верх. границей
 
-    public static void playPrimeGame() {
-        String[] questions = new String[Engine.ROUND_COUNT];
-        String[] correctAnswers = new String[Engine.ROUND_COUNT];
+    public static void playPrimeGame(String[] questions, String[] correctAnswers) {
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
             questions[i] = generatePrimeQuestion();
             correctAnswers[i] = generatePrimeCorrectAnswer(questions[i]);

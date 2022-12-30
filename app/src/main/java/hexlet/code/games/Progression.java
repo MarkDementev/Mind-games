@@ -9,9 +9,7 @@ public class Progression {
     private static final int PROGRESSION_MIN_SIZE = 5;
     private static final int PROGRESSION_MAX_SIZE = 10;
 
-    public static void playProgressionGame() {
-        String[] questions = new String[Engine.ROUND_COUNT];
-        String[] correctAnswers = new String[Engine.ROUND_COUNT];
+    public static void playProgressionGame(String[] questions, String[] correctAnswers) {
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
             questions[i] = generateProgressionQuestion();
             correctAnswers[i] = generateProgressionCorrectAnswer(questions[i]);

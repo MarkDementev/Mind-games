@@ -20,24 +20,27 @@ public class App {
     }
 
     static void startSelectedGame(String playerInteractionType) {
+        String[] questions = new String[Engine.ROUND_COUNT];
+        String[] correctAnswers = new String[Engine.ROUND_COUNT];
+
         switch (playerInteractionType) {
             case "1":
                 Cli.meetPlayer();
                 break;
             case "2":
-                Even.playEvenGame();
+                Even.playEvenGame(questions, correctAnswers);
                 break;
             case "3":
-                Calculator.playCalculatorGame();
+                Calculator.playCalculatorGame(questions, correctAnswers);
                 break;
             case "4":
-                GCD.playGCDGame();
+                GCD.playGCDGame(questions, correctAnswers);
                 break;
             case "5":
-                Progression.playProgressionGame();
+                Progression.playProgressionGame(questions, correctAnswers);
                 break;
             case "6":
-                Prime.playPrimeGame();
+                Prime.playPrimeGame(questions, correctAnswers);
                 break;
             case "0":
                 System.out.println("Good bye!");

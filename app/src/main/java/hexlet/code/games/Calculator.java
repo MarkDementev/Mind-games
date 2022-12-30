@@ -11,9 +11,7 @@ public class Calculator {
     private static final int CALCULATOR_UPPER_BORDER = 50;
     //прописываю диапазон генерации элементов [2;50], чтобы упростить пользователю счёт "в уме"
     //но начал его с 2, чтобы не пришлось без интереса пользователю умножать на 0 или 1
-    public static void playCalculatorGame() {
-        String[] questions = new String[Engine.ROUND_COUNT];
-        String[] correctAnswers = new String[Engine.ROUND_COUNT];
+    public static void playCalculatorGame(String[] questions, String[] correctAnswers) {
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
             questions[i] = generateCalculatorQuestion();
             correctAnswers[i] = generateCalculatorCorrectAnswer(questions[i]);

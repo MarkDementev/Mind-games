@@ -7,9 +7,7 @@ public class GCD {
     public static final String GCD_RULE = "Find the greatest common divisor of given numbers.";
     private static final int GCD_LOWER_BORDER = 1;
     //добавил значение мин. границы, чтобы пользователю выпадали ненулевые значения
-    public static void playGCDGame() {
-        String[] questions = new String[Engine.ROUND_COUNT];
-        String[] correctAnswers = new String[Engine.ROUND_COUNT];
+    public static void playGCDGame(String[] questions, String[] correctAnswers) {
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
             questions[i] = generateGCDQuestion();
             correctAnswers[i] = generateGCDCorrectAnswer(questions[i]);
