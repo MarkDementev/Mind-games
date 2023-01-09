@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
-import hexlet.code.helperClasses.GameDataToEnginePreparer;
-import hexlet.code.helperClasses.RandomUtils;
+import hexlet.code.Engine;
+import hexlet.code.utils.RandomUtils;
 
 public class Calculator {
     public static final String CALCULATOR_RULE = "What is the result of the expression?";
@@ -9,53 +9,34 @@ public class Calculator {
     public static final int SECOND_PERCENT_BORDER = 67;
     private static final int CALCULATOR_LOWER_BORDER = 2;
     private static final int CALCULATOR_UPPER_BORDER = 50;
+    private static final String[] CALCULATOR_OPERATORS = {" + ", " - ", " * "};
     //прописываю диапазон генерации элементов [2;50], чтобы упростить пользователю счёт "в уме"
     //но начал его с 2, чтобы не пришлось без интереса пользователю умножать на 0 или 1
-    public static void playCalculatorGame() {
-        GameDataToEnginePreparer.formQuestionsAnswersThenRunEngine("Calculator", CALCULATOR_RULE);
-    }
 
-    public static String generateCalculatorQuestion() {
+    public static String[] generateCalculatorQuestionAndAnswerPair() {
         int firstCalculationElement = RandomUtils.generateRandomNumber(CALCULATOR_LOWER_BORDER,
                 CALCULATOR_UPPER_BORDER);
         int secondCalculationElement = RandomUtils.generateRandomNumber(CALCULATOR_LOWER_BORDER,
                 CALCULATOR_UPPER_BORDER);
         int mathOperatorGeneratorElement = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
                 RandomUtils.DEFAULT_UPPER_BORDER);
-        String question;
+        String[] questionAnswerPair = new String[2];
 
         if (mathOperatorGeneratorElement < FIRST_PERCENT_BORDER) {
-            question = firstCalculationElement + " + " + secondCalculationElement;
+            questionAnswerPair[0] = firstCalculationElement + CALCULATOR_OPERATORS[0] + secondCalculationElement;
+            questionAnswerPair[1] = String.valueOf(firstCalculationElement + secondCalculationElement);
         } else if (mathOperatorGeneratorElement > FIRST_PERCENT_BORDER
                 && mathOperatorGeneratorElement < SECOND_PERCENT_BORDER) {
-            question = firstCalculationElement + " - " + secondCalculationElement;
+            questionAnswerPair[0] = firstCalculationElement + CALCULATOR_OPERATORS[1] + secondCalculationElement;
+            questionAnswerPair[1] = String.valueOf(firstCalculationElement - secondCalculationElement);
         } else {
-            question = firstCalculationElement + " * " + secondCalculationElement;
+            questionAnswerPair[0] = firstCalculationElement + CALCULATOR_OPERATORS[2] + secondCalculationElement;
+            questionAnswerPair[1] = String.valueOf(firstCalculationElement * secondCalculationElement);
         }
-        return question;
+        return questionAnswerPair;
     }
 
-    public static String generateCalculatorCorrectAnswer(String question) {
-        String arraySeparator;
-
-        if (question.contains("+")) {
-            arraySeparator = " \\+ ";
-        } else if (question.contains("-")) {
-            arraySeparator = " - ";
-        } else {
-            arraySeparator = " \\* ";
-        }
-        String[] questionToArr = question.split(arraySeparator);
-        int firstAnswerCalculationElement = Integer.parseInt(questionToArr[0]);
-        int secondAnswerCalculationElement = Integer.parseInt(questionToArr[1]);
-
-        switch (arraySeparator) {
-            case " \\+ ":
-                return String.valueOf(firstAnswerCalculationElement + secondAnswerCalculationElement);
-            case " - ":
-                return String.valueOf(firstAnswerCalculationElement - secondAnswerCalculationElement);
-            default:
-                return String.valueOf(firstAnswerCalculationElement * secondAnswerCalculationElement);
-        }
+    public static void startCalculatorGame(String[][] questionsAnswersPairs) {
+        Engine.runGame(CALCULATOR_RULE, questionsAnswersPairs);
     }
 }

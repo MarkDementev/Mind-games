@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.code.helperClasses.GameDataToEnginePreparer;
-import hexlet.code.helperClasses.RandomUtils;
+import hexlet.code.utils.RandomUtils;
 
 public class GCD {
     public static final String GCD_RULE = "Find the greatest common divisor of given numbers.";

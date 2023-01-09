@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.code.helperClasses.GameDataToEnginePreparer;
-import hexlet.code.helperClasses.RandomUtils;
+import hexlet.code.utils.RandomUtils;
 import java.util.Arrays;
 
 public class Progression {

@@ -1,7 +1,6 @@
 package hexlet.code.games;
 
-import hexlet.code.helperClasses.GameDataToEnginePreparer;
-import hexlet.code.helperClasses.RandomUtils;
+import hexlet.code.utils.RandomUtils;
 
 public class Even {
     public static final String EVEN_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
