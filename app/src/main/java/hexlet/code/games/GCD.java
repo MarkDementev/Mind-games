@@ -23,7 +23,7 @@ public class GCD {
         int secondOutputElement = RandomUtils.generateRandomNumber(GCD_LOWER_BORDER,
                 RandomUtils.DEFAULT_UPPER_BORDER);
 
-        questionAnswerPair[0] = String.valueOf(firstOutputElement + secondOutputElement);
+        questionAnswerPair[0] = firstOutputElement + " " + secondOutputElement;
         questionAnswerPair[1] = String.valueOf(findGCD(firstOutputElement, secondOutputElement));
         return questionAnswerPair;
     }
