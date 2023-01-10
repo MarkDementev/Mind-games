@@ -1,7 +1,10 @@
 package hexlet.code;
 
-//import hexlet.code.games.Calculator;
-import hexlet.code.games.*;
+import hexlet.code.games.Calculator;
+import hexlet.code.games.Even;
+import hexlet.code.games.GCD;
+import hexlet.code.games.Prime;
+import hexlet.code.games.Progression;
 
 import java.util.Scanner;
 
@@ -13,44 +16,18 @@ public class App {
         System.out.print("Your choice: ");
         String playerInteractionType = playerInteractionScanner.next();
         System.out.println("");
-        playerCommunicationOrStartGame(playerInteractionType);
+        startSelectedGame(playerInteractionType);
         playerInteractionScanner.close();
     }
-
-    private static void playerCommunicationOrStartGame(String playerInteractionType) {
-        String[][] questionsAnswersPairs = new String[Engine.ROUND_COUNT][];
-        switch (playerInteractionType) {
-            case "0" -> System.out.println("Good bye!");
-            case "1" -> Cli.meetPlayer();
-            case "2","3","4","5","6" -> {
-                for (int i = 0; i < Engine.ROUND_COUNT; i++) {
-                    questionsAnswersPairs[i] = runGameRound();
-                }
-                startGame(questionsAnswersPairs);
-            }
-            default -> System.out.println("Please, input only 1 or 0.");
-        }
-    }
-
-    private static String[] runGameRound() {
-        return Calculator.generateCalculatorQuestionAndAnswerPair();
-    }
-
-    private static void startGame(String[][] questionsAnswersPairs) {
-        Calculator.startCalculatorGame(questionsAnswersPairs);
-    }
-
-
-
 
     private static void startSelectedGame(String playerInteractionType) {
         switch (playerInteractionType) {
             case "1" -> Cli.meetPlayer();
             case "2" -> Even.playEvenGame();
-            case "3" -> Calculator.playCalculatorGame();
-            case "4" -> GCD.playGCDGame();
+            case "3" -> Calculator.startCalculatorGame();
+            case "4" -> GCD.startGCDGame();
             case "5" -> Progression.playProgressionGame();
-            case "6" -> Prime.playPrimeGame();
+            case "6" -> Prime.startPrimeGame();
             case "0" -> System.out.println("Good bye!");
             default -> System.out.println("Please, input only 1 or 0.");
         }

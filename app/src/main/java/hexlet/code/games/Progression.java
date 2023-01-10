@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import hexlet.code.utils.RandomUtils;
 import java.util.Arrays;
 
@@ -9,7 +10,13 @@ public class Progression {
     private static final int PROGRESSION_MAX_SIZE = 10;
 
     public static void playProgressionGame() {
-        GameDataToEnginePreparer.formQuestionsAnswersThenRunEngine("Progression", PROGRESSION_RULE);
+        String[][] progressionQuestionsAnswers = new String[Engine.ROUND_COUNT][];
+
+        for (int i = 0; i < Engine.ROUND_COUNT; i++) {
+            String[] roundProgression = formProgression();
+            progressionQuestionsAnswers[i] = makeProgressionQuestionAndAnswerPair(roundProgression);
+        }
+        Engine.runGame(PROGRESSION_RULE, progressionQuestionsAnswers);
     }
 
     public static String[] formProgression() {
@@ -34,15 +41,47 @@ public class Progression {
         return progressionArr;
     }
 
-    public static String generateProgressionQuestion() {
-        String[] progressionArr = formProgression();
-        return Arrays.toString(progressionArr)
+    public static String[] makeProgressionQuestionAndAnswerPair(String[] roundProgression) {
+        String[] questionAnswerPair = new String[2];
+        int correctAnswerIndex = 0;
+        int progressionStep = 0;
+
+        questionAnswerPair[0] = Arrays.toString(roundProgression)
                 .replace(",", "")
                 .replace("[", "")
                 .replace("]", "");
+
+        for (int i3 = 0; i3 < roundProgression.length; i3++) {
+            if (roundProgression[i3].equals("..")) {
+                correctAnswerIndex = i3;
+            }
+        }
+        progressionStep = findProgressionStep(correctAnswerIndex, roundProgression);
+
+        if (correctAnswerIndex == roundProgression.length - 1) {
+            questionAnswerPair[1] = String.valueOf(Integer.
+                    parseInt(roundProgression[correctAnswerIndex - 1]) + progressionStep);
+        } else {
+            questionAnswerPair[1] = String.valueOf(Integer.
+                    parseInt(roundProgression[correctAnswerIndex + 1]) - progressionStep);
+        }
+        return questionAnswerPair;
     }
 
-    public static String generateProgressionCorrectAnswer(String question) {
+    private static int findProgressionStep(int correctAnswerIndex, String[] progressionAnswerArr) {
+        int finalArrElementIndex = progressionAnswerArr.length - 1;
+
+        if (correctAnswerIndex == 0 || correctAnswerIndex == finalArrElementIndex) {
+            return Integer.parseInt(progressionAnswerArr[finalArrElementIndex - 1])
+                    - Integer.parseInt(progressionAnswerArr[finalArrElementIndex - 2]);
+        } else {
+            return (Integer.parseInt(progressionAnswerArr[finalArrElementIndex])
+                    - Integer.parseInt(progressionAnswerArr[0]))
+                    / (finalArrElementIndex);
+        }
+    }
+
+/*    public static String generateProgressionCorrectAnswer(String question) {
         String[] progressionAnswerArr = question.split(" ");
         int correctAnswerIndex = 0;
         int progressionStep;
@@ -59,18 +98,5 @@ public class Progression {
         } else {
             return String.valueOf(Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1]) - progressionStep);
         }
-    }
-
-    private static int findProgressionStep(int correctAnswerIndex, String[] progressionAnswerArr) {
-        int finalArrElementIndex = progressionAnswerArr.length - 1;
-
-        if (correctAnswerIndex == 0 || correctAnswerIndex == finalArrElementIndex) {
-            return Integer.parseInt(progressionAnswerArr[finalArrElementIndex - 1])
-                    - Integer.parseInt(progressionAnswerArr[finalArrElementIndex - 2]);
-        } else {
-            return (Integer.parseInt(progressionAnswerArr[finalArrElementIndex])
-                    - Integer.parseInt(progressionAnswerArr[0]))
-                    / (finalArrElementIndex);
-        }
-    }
+    }*/
 }

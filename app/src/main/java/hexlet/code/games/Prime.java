@@ -1,5 +1,6 @@
 package hexlet.code.games;
 
+import hexlet.code.Engine;
 import hexlet.code.utils.RandomUtils;
 
 public class Prime {
@@ -7,16 +8,22 @@ public class Prime {
     private static final int PRIME_UPPER_BORDER = 3571;
     //т.к. в Википедии дан список простых чисел до 3571, поставлю это число верх. границей
 
-    public static void playPrimeGame() {
-        GameDataToEnginePreparer.formQuestionsAnswersThenRunEngine("Prime", PRIME_RULE);
+    public static void startPrimeGame() {
+        String[][] primeQuestionsAnswers = new String[Engine.ROUND_COUNT][];
+
+        for (int i = 0; i < Engine.ROUND_COUNT; i++) {
+            primeQuestionsAnswers[i] = generatePrimeQuestionAndAnswerPair();
+        }
+        Engine.runGame(PRIME_RULE, primeQuestionsAnswers);
     }
 
-    public static String generatePrimeQuestion() {
-        return String.valueOf(RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER, PRIME_UPPER_BORDER));
-    }
+    public static String[] generatePrimeQuestionAndAnswerPair() {
+        String[] questionAnswerPair = new String[2];
 
-    public static String generatePrimeCorrectAnswer(String question) {
-        return isPrimeNumber(question);
+        questionAnswerPair[0] = String.valueOf(RandomUtils.
+                generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER, PRIME_UPPER_BORDER));
+        questionAnswerPair[1] = isPrimeNumber(questionAnswerPair[0]);
+        return questionAnswerPair;
     }
 
     public static String isPrimeNumber(String inputNumber) {

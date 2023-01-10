@@ -13,6 +13,15 @@ public class Calculator {
     //прописываю диапазон генерации элементов [2;50], чтобы упростить пользователю счёт "в уме"
     //но начал его с 2, чтобы не пришлось без интереса пользователю умножать на 0 или 1
 
+    public static void startCalculatorGame() {
+        String[][] calculatorQuestionsAnswers = new String[Engine.ROUND_COUNT][];
+
+        for (int i = 0; i < Engine.ROUND_COUNT; i++) {
+            calculatorQuestionsAnswers[i] = generateCalculatorQuestionAndAnswerPair();
+        }
+        Engine.runGame(CALCULATOR_RULE, calculatorQuestionsAnswers);
+    }
+
     public static String[] generateCalculatorQuestionAndAnswerPair() {
         int firstCalculationElement = RandomUtils.generateRandomNumber(CALCULATOR_LOWER_BORDER,
                 CALCULATOR_UPPER_BORDER);
@@ -34,9 +43,5 @@ public class Calculator {
             questionAnswerPair[1] = String.valueOf(firstCalculationElement * secondCalculationElement);
         }
         return questionAnswerPair;
-    }
-
-    public static void startCalculatorGame(String[][] questionsAnswersPairs) {
-        Engine.runGame(CALCULATOR_RULE, questionsAnswersPairs);
     }
 }
