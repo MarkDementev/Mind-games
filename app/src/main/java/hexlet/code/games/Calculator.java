@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.utils.RandomUtils;
+import hexlet.code.RandomUtils;
 
 public class Calculator {
     public static final String CALCULATOR_RULE = "What is the result of the expression?";
@@ -29,19 +29,21 @@ public class Calculator {
                 CALCULATOR_UPPER_BORDER);
         int mathOperatorGeneratorElement = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
                 RandomUtils.DEFAULT_UPPER_BORDER);
+        String chosenMathOperator;
         String[] questionAnswerPair = new String[2];
 
         if (mathOperatorGeneratorElement < FIRST_PERCENT_BORDER) {
-            questionAnswerPair[0] = firstCalculationElement + CALCULATOR_OPERATORS[0] + secondCalculationElement;
+            chosenMathOperator = CALCULATOR_OPERATORS[0];
             questionAnswerPair[1] = String.valueOf(firstCalculationElement + secondCalculationElement);
         } else if (mathOperatorGeneratorElement > FIRST_PERCENT_BORDER
                 && mathOperatorGeneratorElement < SECOND_PERCENT_BORDER) {
-            questionAnswerPair[0] = firstCalculationElement + CALCULATOR_OPERATORS[1] + secondCalculationElement;
+            chosenMathOperator = CALCULATOR_OPERATORS[1];
             questionAnswerPair[1] = String.valueOf(firstCalculationElement - secondCalculationElement);
         } else {
-            questionAnswerPair[0] = firstCalculationElement + CALCULATOR_OPERATORS[2] + secondCalculationElement;
+            chosenMathOperator = CALCULATOR_OPERATORS[2];
             questionAnswerPair[1] = String.valueOf(firstCalculationElement * secondCalculationElement);
         }
+        questionAnswerPair[0] = firstCalculationElement + chosenMathOperator + secondCalculationElement;
         return questionAnswerPair;
     }
 }

@@ -1,7 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
-import hexlet.code.utils.RandomUtils;
+import hexlet.code.RandomUtils;
 import java.util.Arrays;
 
 public class Progression {
@@ -80,23 +80,4 @@ public class Progression {
                     / (finalArrElementIndex);
         }
     }
-
-/*    public static String generateProgressionCorrectAnswer(String question) {
-        String[] progressionAnswerArr = question.split(" ");
-        int correctAnswerIndex = 0;
-        int progressionStep;
-
-        for (int i3 = 0; i3 < progressionAnswerArr.length; i3++) {
-            if (progressionAnswerArr[i3].equals("..")) {
-                correctAnswerIndex = i3;
-            }
-        }
-        progressionStep = findProgressionStep(correctAnswerIndex, progressionAnswerArr);
-
-        if (correctAnswerIndex == progressionAnswerArr.length - 1) {
-            return String.valueOf(Integer.parseInt(progressionAnswerArr[correctAnswerIndex - 1]) + progressionStep);
-        } else {
-            return String.valueOf(Integer.parseInt(progressionAnswerArr[correctAnswerIndex + 1]) - progressionStep);
-        }
-    }*/
 }
