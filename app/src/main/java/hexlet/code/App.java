@@ -24,9 +24,9 @@ public class App {
         switch (playerInteractionType) {
             case "1" -> Cli.meetPlayer();
             case "2" -> Even.playEvenGame();
-            case "3" -> Calculator.startCalculatorGame();
-            case "4" -> GCD.startGCDGame();
-            case "5" -> Progression.playProgressionGame();
+            case "3" -> Calculator.prepareCalculatorAnswersQuestionsAndStartEngine();
+            case "4" -> GCD.makeGCDQuestionsAnswersThenEngine();
+            case "5" -> Progression.startProgressionGameThenEngine();
             case "6" -> Prime.startPrimeGame();
             case "0" -> System.out.println("Good bye!");
             default -> System.out.println("Please, input only 1 or 0.");

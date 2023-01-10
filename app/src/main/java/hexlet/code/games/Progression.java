@@ -9,7 +9,7 @@ public class Progression {
     private static final int PROGRESSION_MIN_SIZE = 5;
     private static final int PROGRESSION_MAX_SIZE = 10;
 
-    public static void playProgressionGame() {
+    public static void startProgressionGameThenEngine() {
         String[][] progressionQuestionsAnswers = new String[Engine.ROUND_COUNT][];
 
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
