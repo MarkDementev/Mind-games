@@ -5,10 +5,10 @@ import hexlet.code.RandomUtils;
 
 public class Calculator {
     public static final String CALCULATOR_RULE = "What is the result of the expression?";
-    public static final int FIRST_PERCENT_BORDER = 33;
-    public static final int SECOND_PERCENT_BORDER = 67;
-    private static final int CALCULATOR_LOWER_BORDER = 2;
-    private static final int CALCULATOR_UPPER_BORDER = 50;
+    private static final int EXPRESSION_ELEMENT_LOWER_BORDER = 2;
+    private static final int EXPRESSION_ELEMENT_UPPER_BORDER = 50;
+    private static final int MATH_OPERATOR_ELECTOR_LOWER_BORDER = 0;
+    private static final int MATH_OPERATOR_ELECTOR_UPPER_BORDER = 2;
     private static final String[] CALCULATOR_OPERATORS = {" + ", " - ", " * "};
     //прописываю диапазон генерации элементов [2;50], чтобы упростить пользователю счёт "в уме"
     //но начал его с 2, чтобы не пришлось без интереса пользователю умножать на 0 или 1
@@ -23,24 +23,21 @@ public class Calculator {
     }
 
     public static String[] generateCalculatorQuestionAndAnswerPair() {
-        int firstCalculationElement = RandomUtils.generateRandomNumber(CALCULATOR_LOWER_BORDER,
-                CALCULATOR_UPPER_BORDER);
-        int secondCalculationElement = RandomUtils.generateRandomNumber(CALCULATOR_LOWER_BORDER,
-                CALCULATOR_UPPER_BORDER);
-        int mathOperatorGeneratorElement = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
-                RandomUtils.DEFAULT_UPPER_BORDER);
-        String chosenMathOperator;
         String[] questionAnswerPair = new String[2];
 
-        if (mathOperatorGeneratorElement < FIRST_PERCENT_BORDER) {
-            chosenMathOperator = CALCULATOR_OPERATORS[0];
+        int firstCalculationElement = RandomUtils.generateRandomNumber(EXPRESSION_ELEMENT_LOWER_BORDER,
+                EXPRESSION_ELEMENT_UPPER_BORDER);
+        int secondCalculationElement = RandomUtils.generateRandomNumber(EXPRESSION_ELEMENT_LOWER_BORDER,
+                EXPRESSION_ELEMENT_UPPER_BORDER);
+        int mathOperatorGeneratorElement = RandomUtils.generateRandomNumber(MATH_OPERATOR_ELECTOR_LOWER_BORDER,
+                MATH_OPERATOR_ELECTOR_UPPER_BORDER);
+        String chosenMathOperator = CALCULATOR_OPERATORS[mathOperatorGeneratorElement];
+
+        if (chosenMathOperator.equals(CALCULATOR_OPERATORS[0])) {
             questionAnswerPair[1] = String.valueOf(firstCalculationElement + secondCalculationElement);
-        } else if (mathOperatorGeneratorElement > FIRST_PERCENT_BORDER
-                && mathOperatorGeneratorElement < SECOND_PERCENT_BORDER) {
-            chosenMathOperator = CALCULATOR_OPERATORS[1];
+        } else if (chosenMathOperator.equals(CALCULATOR_OPERATORS[1])) {
             questionAnswerPair[1] = String.valueOf(firstCalculationElement - secondCalculationElement);
         } else {
-            chosenMathOperator = CALCULATOR_OPERATORS[2];
             questionAnswerPair[1] = String.valueOf(firstCalculationElement * secondCalculationElement);
         }
         questionAnswerPair[0] = firstCalculationElement + chosenMathOperator + secondCalculationElement;
