@@ -13,7 +13,7 @@ public class Calculator {
     //прописываю диапазон генерации элементов [2;50], чтобы упростить пользователю счёт "в уме"
     //но начал его с 2, чтобы не пришлось без интереса пользователю умножать на 0 или 1
 
-    public static void prepareCalculatorAnswersQuestionsAndStartEngine() {
+    public static void startCalculatorGame() {
         String[][] calculatorQuestionsAnswers = new String[Engine.ROUND_COUNT][];
 
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
