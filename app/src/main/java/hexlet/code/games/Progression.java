@@ -8,43 +8,48 @@ public class Progression {
     public static final String PROGRESSION_RULE = "What number is missing in the progression?";
     private static final int PROGRESSION_MIN_SIZE = 5;
     private static final int PROGRESSION_MAX_SIZE = 10;
+    private static final String EMPTY_PLACE_ELEMENT = "..";
 
     public static void startProgressionGame() {
         String[][] progressionQuestionsAnswers = new String[Engine.ROUND_COUNT][];
+        int progressionArrayLength;
+        int progressionStep;
+        int firstElement;
 
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
-            String[] roundProgression = formProgression();
+            progressionArrayLength = RandomUtils.generateRandomNumber(PROGRESSION_MIN_SIZE, PROGRESSION_MAX_SIZE);
+            firstElement = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
+                    RandomUtils.DEFAULT_UPPER_BORDER);
+            progressionStep = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
+                    RandomUtils.DEFAULT_UPPER_BORDER);
+            String[] roundProgression = formProgression(progressionArrayLength, progressionStep, firstElement);
             progressionQuestionsAnswers[i] = makeProgressionQuestionAndAnswerPair(roundProgression);
         }
         Engine.runGame(PROGRESSION_RULE, progressionQuestionsAnswers);
     }
 
-    public static String[] formProgression() {
-        int arrLength = RandomUtils.generateRandomNumber(PROGRESSION_MIN_SIZE, PROGRESSION_MAX_SIZE);
-        int emptyPlaceNumber = RandomUtils.generateRandomNumber(0, arrLength - 1);
-        int progressionStep = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
-                RandomUtils.DEFAULT_UPPER_BORDER);
-        int firstElementProgression = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
-                RandomUtils.DEFAULT_UPPER_BORDER);
-        String[] progressionArr = new String[arrLength];
-        int[] intProgressionArr = new int[arrLength];
+    public static String[] formProgression(int progressionArrayLength, int progressionStep, int firstElement) {
+        String[] progressionArray = new String[progressionArrayLength];
+        int[] intProgressionArray = new int[progressionArrayLength];
 
-        for (int i1 = 0; i1 < arrLength; i1++) {
-            intProgressionArr[i1] = firstElementProgression;
-            firstElementProgression = firstElementProgression + progressionStep;
+        int emptyPlaceNumber = RandomUtils.generateRandomNumber(0, progressionArrayLength - 1);
+
+        for (int i1 = 0; i1 < progressionArrayLength; i1++) {
+            intProgressionArray[i1] = firstElement;
+            firstElement = firstElement + progressionStep;
         }
 
-        for (int i2 = 0; i2 < arrLength; i2++) {
-            progressionArr[i2] = String.valueOf(intProgressionArr[i2]);
+        for (int i2 = 0; i2 < progressionArrayLength; i2++) {
+            progressionArray[i2] = String.valueOf(intProgressionArray[i2]);
         }
-        progressionArr[emptyPlaceNumber] = "..";
-        return progressionArr;
+        progressionArray[emptyPlaceNumber] = EMPTY_PLACE_ELEMENT;
+        return progressionArray;
     }
 
     public static String[] makeProgressionQuestionAndAnswerPair(String[] roundProgression) {
         String[] questionAnswerPair = new String[2];
         int correctAnswerIndex = 0;
-        int progressionStep = 0;
+        int progressionStep;
 
         questionAnswerPair[0] = Arrays.toString(roundProgression)
                 .replace(",", "")
@@ -52,7 +57,7 @@ public class Progression {
                 .replace("]", "");
 
         for (int i3 = 0; i3 < roundProgression.length; i3++) {
-            if (roundProgression[i3].equals("..")) {
+            if (roundProgression[i3].equals(EMPTY_PLACE_ELEMENT)) {
                 correctAnswerIndex = i3;
             }
         }
