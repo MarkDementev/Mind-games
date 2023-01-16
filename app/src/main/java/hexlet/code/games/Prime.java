@@ -22,22 +22,22 @@ public class Prime {
 
         questionAnswerPair[0] = String.valueOf(RandomUtils.
                 generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER, PRIME_UPPER_BORDER));
-        questionAnswerPair[1] = isPrimeNumber(questionAnswerPair[0]);
+        questionAnswerPair[1] = isPrimeNumber(Integer.parseInt(questionAnswerPair[0])) ? "yes" : "no";
         return questionAnswerPair;
     }
 
-    public static String isPrimeNumber(String inputNumber) {
-        String correctAnswer = "no";
+    public static boolean isPrimeNumber(int inputNumber) {
+        boolean correctAnswer = false;
         int noOneDividerCounts = 0;
 
         for (int i = 2; i <= PRIME_UPPER_BORDER; i++) {
-            if (Integer.parseInt(inputNumber) % i == 0) {
+            if (inputNumber % i == 0) {
                 noOneDividerCounts++;
             }
         }
 
-        if (Integer.parseInt(inputNumber) > 1 && noOneDividerCounts == 1) {
-            correctAnswer = "yes";
+        if (inputNumber > 1 && noOneDividerCounts == 1) {
+            correctAnswer = true;
         }
         return correctAnswer;
     }
