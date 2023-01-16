@@ -4,22 +4,25 @@ import java.util.Scanner;
 
 public class Engine {
     public static final int ROUND_COUNT = 3;
+    public static final String WELCOME_MESSAGE = "\nWelcome to the Brain Games!\nMay I have your name? ";
+    public static final String ANSWER_REQUEST = "Your answer: ";
+    public static final String IF_WRIGHT_ANSWER_TEXT = "Correct!";
 
     public static void runGame(String gameRule, String[][] questionsAnswersPairs) {
         String playerName;
         String playerAnswer;
         Scanner nameAndAnswerScanner = new Scanner(System.in);
 
-        System.out.println("Welcome to the Brain Games!\nMay I have your name? ");
+        System.out.println(WELCOME_MESSAGE);
         playerName = nameAndAnswerScanner.next();
         System.out.println("Hello, " + playerName + "!");
         System.out.println(gameRule);
         for (int i = 0; i < ROUND_COUNT; i++) {
             System.out.println("Question: " + questionsAnswersPairs[i][0]);
-            System.out.print("Your answer: ");
+            System.out.print(ANSWER_REQUEST);
             playerAnswer = nameAndAnswerScanner.next();
             if (playerAnswer.equals(questionsAnswersPairs[i][1])) {
-                System.out.println("Correct!");
+                System.out.println(IF_WRIGHT_ANSWER_TEXT);
             } else {
                 System.out.println("'" + playerAnswer + "'"
                         + " is wrong answer ;(. Correct answer was"
