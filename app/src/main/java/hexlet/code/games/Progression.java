@@ -15,32 +15,37 @@ public class Progression {
         int progressionArrayLength;
         int progressionStep;
         int firstElement;
+        int emptyPlaceNumber;
 
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
             progressionArrayLength = RandomUtils.generateRandomNumber(PROGRESSION_MIN_SIZE, PROGRESSION_MAX_SIZE);
-            firstElement = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
-                    RandomUtils.DEFAULT_UPPER_BORDER);
             progressionStep = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
                     RandomUtils.DEFAULT_UPPER_BORDER);
-            String[] roundProgression = formProgression(progressionArrayLength, progressionStep, firstElement);
+            firstElement = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
+                    RandomUtils.DEFAULT_UPPER_BORDER);
+            int[] intRoundProgression = formProgression(progressionArrayLength, progressionStep, firstElement);
+            emptyPlaceNumber = RandomUtils.generateRandomNumber(0, intRoundProgression.length - 1);
+            String[] roundProgression = intProgressionToString(intRoundProgression, emptyPlaceNumber);
             questionAnswerPairs[i] = makeProgressionQuestionAndAnswerPair(roundProgression);
         }
         Engine.runGame(PROGRESSION_RULE, questionAnswerPairs);
     }
 
-    public static String[] formProgression(int progressionArrayLength, int progressionStep, int firstElement) {
-        String[] progressionArray = new String[progressionArrayLength];
+    public static int[] formProgression(int progressionArrayLength, int progressionStep, int firstElement) {
         int[] intProgressionArray = new int[progressionArrayLength];
 
-        int emptyPlaceNumber = RandomUtils.generateRandomNumber(0, progressionArrayLength - 1);
-
-        for (int i1 = 0; i1 < progressionArrayLength; i1++) {
-            intProgressionArray[i1] = firstElement;
+        for (int i = 0; i < progressionArrayLength; i++) {
+            intProgressionArray[i] = firstElement;
             firstElement = firstElement + progressionStep;
         }
+        return intProgressionArray;
+    }
 
-        for (int i2 = 0; i2 < progressionArrayLength; i2++) {
-            progressionArray[i2] = String.valueOf(intProgressionArray[i2]);
+    public static String[] intProgressionToString(int[] intRoundProgression, int emptyPlaceNumber) {
+        String[] progressionArray = new String[intRoundProgression.length];
+
+        for (int i = 0; i < intRoundProgression.length; i++) {
+            progressionArray[i] = String.valueOf(intRoundProgression[i]);
         }
         progressionArray[emptyPlaceNumber] = EMPTY_PLACE_ELEMENT;
         return progressionArray;
