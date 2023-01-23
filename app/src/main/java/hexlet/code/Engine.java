@@ -11,16 +11,16 @@ public class Engine {
     public static void runGame(String gameRule, String[][] questionsAnswersPairs) {
         String playerName;
         String playerAnswer;
-        Scanner nameAndAnswerScanner = new Scanner(System.in);
+        Scanner inputScanner = new Scanner(System.in);
 
         System.out.println(WELCOME_MESSAGE);
-        playerName = nameAndAnswerScanner.next();
+        playerName = inputScanner.next();
         System.out.println("Hello, " + playerName + "!");
         System.out.println(gameRule);
         for (int i = 0; i < ROUND_COUNT; i++) {
             System.out.println("Question: " + questionsAnswersPairs[i][0]);
             System.out.print(ANSWER_REQUEST);
-            playerAnswer = nameAndAnswerScanner.next();
+            playerAnswer = inputScanner.next();
             if (playerAnswer.equals(questionsAnswersPairs[i][1])) {
                 System.out.println(IF_WRIGHT_ANSWER_TEXT);
             } else {
