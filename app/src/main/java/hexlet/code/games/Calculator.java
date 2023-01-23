@@ -18,12 +18,12 @@ public class Calculator {
     //но начал его с 2, чтобы не пришлось без интереса пользователю умножать на 0 или 1
 
     public static void startCalculatorGame() {
-        String[][] calculatorQuestionsAnswers = new String[Engine.ROUND_COUNT][];
+        String[][] questionAnswerPairs = new String[Engine.ROUND_COUNT][];
 
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
-            calculatorQuestionsAnswers[i] = generateCalculatorQuestionAndAnswerPair();
+            questionAnswerPairs[i] = generateCalculatorQuestionAndAnswerPair();
         }
-        Engine.runGame(CALCULATOR_RULE, calculatorQuestionsAnswers);
+        Engine.runGame(CALCULATOR_RULE, questionAnswerPairs);
     }
 
     public static String[] generateCalculatorQuestionAndAnswerPair() {

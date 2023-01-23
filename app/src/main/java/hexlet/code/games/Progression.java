@@ -11,7 +11,7 @@ public class Progression {
     private static final String EMPTY_PLACE_ELEMENT = "..";
 
     public static void startProgressionGame() {
-        String[][] progressionQuestionsAnswers = new String[Engine.ROUND_COUNT][];
+        String[][] questionAnswerPairs = new String[Engine.ROUND_COUNT][];
         int progressionArrayLength;
         int progressionStep;
         int firstElement;
@@ -23,9 +23,9 @@ public class Progression {
             progressionStep = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
                     RandomUtils.DEFAULT_UPPER_BORDER);
             String[] roundProgression = formProgression(progressionArrayLength, progressionStep, firstElement);
-            progressionQuestionsAnswers[i] = makeProgressionQuestionAndAnswerPair(roundProgression);
+            questionAnswerPairs[i] = makeProgressionQuestionAndAnswerPair(roundProgression);
         }
-        Engine.runGame(PROGRESSION_RULE, progressionQuestionsAnswers);
+        Engine.runGame(PROGRESSION_RULE, questionAnswerPairs);
     }
 
     public static String[] formProgression(int progressionArrayLength, int progressionStep, int firstElement) {

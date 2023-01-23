@@ -8,12 +8,12 @@ public class GCD {
     private static final int GCD_LOWER_BORDER = 1;
     //добавил значение мин. границы, чтобы пользователю выпадали ненулевые значения
     public static void startGCDGame() {
-        String[][] gCDQuestionsAnswers = new String[Engine.ROUND_COUNT][];
+        String[][] questionAnswerPairs = new String[Engine.ROUND_COUNT][];
 
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
-            gCDQuestionsAnswers[i] = generateGCDQuestionAndAnswerPair();
+            questionAnswerPairs[i] = generateGCDQuestionAndAnswerPair();
         }
-        Engine.runGame(GCD_RULE, gCDQuestionsAnswers);
+        Engine.runGame(GCD_RULE, questionAnswerPairs);
     }
 
     public static String[] generateGCDQuestionAndAnswerPair() {
