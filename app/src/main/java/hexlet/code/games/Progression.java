@@ -23,10 +23,12 @@ public class Progression {
                     RandomUtils.DEFAULT_UPPER_BORDER);
             firstElement = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
                     RandomUtils.DEFAULT_UPPER_BORDER);
+            emptyPlaceNumber = RandomUtils.generateRandomNumber(0, progressionArrayLength - 1);
             int[] intRoundProgression = formProgression(progressionArrayLength, progressionStep, firstElement);
-            emptyPlaceNumber = RandomUtils.generateRandomNumber(0, intRoundProgression.length - 1);
-            String[] roundProgression = intProgressionToString(intRoundProgression, emptyPlaceNumber);
-            questionAnswerPairs[i] = makeProgressionQuestionAndAnswerPair(roundProgression);
+            String[] roundProgression = intProgressionToString(intRoundProgression, progressionArrayLength,
+                    emptyPlaceNumber);
+            questionAnswerPairs[i] = makeProgressionQuestionAndAnswerPair(roundProgression, progressionArrayLength,
+                    progressionStep, emptyPlaceNumber);
         }
         Engine.runGame(PROGRESSION_RULE, questionAnswerPairs);
     }
@@ -41,53 +43,33 @@ public class Progression {
         return intProgressionArray;
     }
 
-    public static String[] intProgressionToString(int[] intRoundProgression, int emptyPlaceNumber) {
-        String[] progressionArray = new String[intRoundProgression.length];
+    public static String[] intProgressionToString(int[] intRoundProgression, int progressionArrayLength,
+                                                  int emptyPlaceNumber) {
+        String[] progressionArray = new String[progressionArrayLength];
 
-        for (int i = 0; i < intRoundProgression.length; i++) {
+        for (int i = 0; i < progressionArrayLength; i++) {
             progressionArray[i] = String.valueOf(intRoundProgression[i]);
         }
         progressionArray[emptyPlaceNumber] = EMPTY_PLACE_ELEMENT;
         return progressionArray;
     }
 
-    public static String[] makeProgressionQuestionAndAnswerPair(String[] roundProgression) {
+    public static String[] makeProgressionQuestionAndAnswerPair(String[] roundProgression, int progressionArrayLength,
+                                                                int progressionStep, int emptyPlaceNumber) {
         String[] questionAnswerPair = new String[2];
-        int correctAnswerIndex = 0;
-        int progressionStep;
 
         questionAnswerPair[0] = Arrays.toString(roundProgression)
                 .replace(",", "")
                 .replace("[", "")
                 .replace("]", "");
 
-        for (int i3 = 0; i3 < roundProgression.length; i3++) {
-            if (roundProgression[i3].equals(EMPTY_PLACE_ELEMENT)) {
-                correctAnswerIndex = i3;
-            }
-        }
-        progressionStep = findProgressionStep(correctAnswerIndex, roundProgression);
-
-        if (correctAnswerIndex == roundProgression.length - 1) {
+        if (emptyPlaceNumber == progressionArrayLength - 1) {
             questionAnswerPair[1] = String.valueOf(Integer.
-                    parseInt(roundProgression[correctAnswerIndex - 1]) + progressionStep);
+                    parseInt(roundProgression[emptyPlaceNumber - 1]) + progressionStep);
         } else {
             questionAnswerPair[1] = String.valueOf(Integer.
-                    parseInt(roundProgression[correctAnswerIndex + 1]) - progressionStep);
+                    parseInt(roundProgression[emptyPlaceNumber + 1]) - progressionStep);
         }
         return questionAnswerPair;
-    }
-
-    private static int findProgressionStep(int correctAnswerIndex, String[] progressionAnswerArr) {
-        int finalArrElementIndex = progressionAnswerArr.length - 1;
-
-        if (correctAnswerIndex == 0 || correctAnswerIndex == finalArrElementIndex) {
-            return Integer.parseInt(progressionAnswerArr[finalArrElementIndex - 1])
-                    - Integer.parseInt(progressionAnswerArr[finalArrElementIndex - 2]);
-        } else {
-            return (Integer.parseInt(progressionAnswerArr[finalArrElementIndex])
-                    - Integer.parseInt(progressionAnswerArr[0]))
-                    / (finalArrElementIndex);
-        }
     }
 }
