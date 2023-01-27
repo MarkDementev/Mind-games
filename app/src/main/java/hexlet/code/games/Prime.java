@@ -27,10 +27,6 @@ public class Prime {
     }
 
     public static boolean isPrimeNumber(int inputNumber) {
-        if (inputNumber < 2) {
-            return false;
-        }
-
         boolean correctAnswer = false;
         int noOneDividerCounts = 0;
 
