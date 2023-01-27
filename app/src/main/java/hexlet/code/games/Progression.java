@@ -34,6 +34,7 @@ public class Progression {
                                                                 int emptyPlaceNumber, int firstElement) {
         String[] questionAnswerPair = new String[2];
         int[] intRoundProgression = formProgression(progressionArrayLength, progressionStep, firstElement);
+        questionAnswerPair[1] = String.valueOf(intRoundProgression[emptyPlaceNumber]);
         StringBuilder intToStringRoundProgression = new StringBuilder(progressionArrayLength);
 
         for (int i = 0; i < progressionArrayLength; i++) {
@@ -45,12 +46,6 @@ public class Progression {
             intToStringRoundProgression.append(" ");
         }
         questionAnswerPair[0] = intToStringRoundProgression.toString();
-
-        if (emptyPlaceNumber == progressionArrayLength - 1) {
-            questionAnswerPair[1] = String.valueOf(intRoundProgression[emptyPlaceNumber - 1] + progressionStep);
-        } else {
-            questionAnswerPair[1] = String.valueOf(intRoundProgression[emptyPlaceNumber + 1] - progressionStep);
-        }
         return questionAnswerPair;
     }
 
