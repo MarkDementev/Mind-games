@@ -3,10 +3,10 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.RandomUtils;
 
-public class Prime {
+public class PrimeGame {
     public static final String PRIME_RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    private static final int PRIME_UPPER_BORDER = 3571;
     //т.к. в Википедии дан список простых чисел до 3571, поставлю это число верх. границей
+    private static final int PRIME_UPPER_BORDER = 3571;
 
     public static void startPrimeGame() {
         String[][] questionAnswerPairs = new String[Engine.ROUND_COUNT][];
@@ -27,7 +27,9 @@ public class Prime {
     }
 
     public static boolean isPrimeNumber(int inputNumber) {
-        boolean correctAnswer = false;
+        if (inputNumber < 2) {
+            return false;
+        }
         int noOneDividerCounts = 0;
 
         for (int i = 2; i <= PRIME_UPPER_BORDER; i++) {
@@ -35,10 +37,6 @@ public class Prime {
                 noOneDividerCounts++;
             }
         }
-
-        if (inputNumber > 1 && noOneDividerCounts == 1) {
-            correctAnswer = true;
-        }
-        return correctAnswer;
+        return noOneDividerCounts == 1;
     }
 }

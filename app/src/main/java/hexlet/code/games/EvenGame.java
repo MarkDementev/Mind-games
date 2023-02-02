@@ -3,8 +3,9 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.RandomUtils;
 
-public class Even {
+public class EvenGame {
     public static final String EVEN_RULE = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+
     public static void startEvenGame() {
         String[][] questionAnswerPairs = new String[Engine.ROUND_COUNT][];
 

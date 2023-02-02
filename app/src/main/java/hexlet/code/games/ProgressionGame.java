@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.RandomUtils;
 
-public class Progression {
+public class ProgressionGame {
     public static final String PROGRESSION_RULE = "What number is missing in the progression?";
     private static final int PROGRESSION_MIN_SIZE = 5;
     private static final int PROGRESSION_MAX_SIZE = 10;
@@ -11,17 +11,13 @@ public class Progression {
 
     public static void startProgressionGame() {
         String[][] questionAnswerPairs = new String[Engine.ROUND_COUNT][];
-        int progressionArrayLength;
-        int progressionStep;
-        int emptyPlaceNumber;
-        int firstElement;
 
         for (int i = 0; i < Engine.ROUND_COUNT; i++) {
-            progressionArrayLength = RandomUtils.generateRandomNumber(PROGRESSION_MIN_SIZE, PROGRESSION_MAX_SIZE);
-            progressionStep = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
+            int progressionArrayLength = RandomUtils.generateRandomNumber(PROGRESSION_MIN_SIZE, PROGRESSION_MAX_SIZE);
+            int progressionStep = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
                     RandomUtils.DEFAULT_UPPER_BORDER);
-            emptyPlaceNumber = RandomUtils.generateRandomNumber(0, progressionArrayLength - 1);
-            firstElement = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
+            int emptyPlaceNumber = RandomUtils.generateRandomNumber(0, progressionArrayLength - 1);
+            int firstElement = RandomUtils.generateRandomNumber(RandomUtils.DEFAULT_LOWER_BORDER,
                     RandomUtils.DEFAULT_UPPER_BORDER);
             questionAnswerPairs[i] = makeProgressionQuestionAndAnswerPair(progressionArrayLength,
                     progressionStep, emptyPlaceNumber, firstElement);
@@ -51,10 +47,11 @@ public class Progression {
 
     public static int[] formProgression(int progressionArrayLength, int progressionStep, int firstElement) {
         int[] intProgressionArray = new int[progressionArrayLength];
+        int insertElement = firstElement;
 
         for (int i = 0; i < progressionArrayLength; i++) {
-            intProgressionArray[i] = firstElement;
-            firstElement = firstElement + progressionStep;
+            intProgressionArray[i] = insertElement;
+            insertElement = insertElement + progressionStep;
         }
         return intProgressionArray;
     }

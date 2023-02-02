@@ -1,10 +1,10 @@
 package hexlet.code;
 
-import hexlet.code.games.Calculator;
-import hexlet.code.games.Even;
-import hexlet.code.games.GCD;
-import hexlet.code.games.Prime;
-import hexlet.code.games.Progression;
+import hexlet.code.games.CalculatorGame;
+import hexlet.code.games.EvenGame;
+import hexlet.code.games.GCDGame;
+import hexlet.code.games.PrimeGame;
+import hexlet.code.games.ProgressionGame;
 
 import java.util.Scanner;
 
@@ -15,6 +15,7 @@ public class App {
     static final String OFFER_MAKE_CHOICE = "Your choice: ";
     static final String CHOSEN_NO_GAMES_TEXT = "Good bye!";
     static final String WRONG_INPUT_ERROR = "Please, input only 1 or 0.";
+
     public static void main(String[] args) {
         System.out.println(INTRODUCTION_MESSAGE);
         System.out.println(GAMES_ENUMERATION);
@@ -28,11 +29,11 @@ public class App {
     private static void startSelectedGame(String playerInteractionType) {
         switch (playerInteractionType) {
             case "1" -> Cli.meetPlayer();
-            case "2" -> Even.startEvenGame();
-            case "3" -> Calculator.startCalculatorGame();
-            case "4" -> GCD.startGCDGame();
-            case "5" -> Progression.startProgressionGame();
-            case "6" -> Prime.startPrimeGame();
+            case "2" -> EvenGame.startEvenGame();
+            case "3" -> CalculatorGame.startCalculatorGame();
+            case "4" -> GCDGame.startGCDGame();
+            case "5" -> ProgressionGame.startProgressionGame();
+            case "6" -> PrimeGame.startPrimeGame();
             case "0" -> System.out.println(CHOSEN_NO_GAMES_TEXT);
             default -> System.out.println(WRONG_INPUT_ERROR);
         }

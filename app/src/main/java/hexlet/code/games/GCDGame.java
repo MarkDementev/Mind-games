@@ -3,10 +3,11 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.RandomUtils;
 
-public class GCD {
+public class GCDGame {
     public static final String GCD_RULE = "Find the greatest common divisor of given numbers.";
-    private static final int GCD_LOWER_BORDER = 1;
     //добавил значение мин. границы, чтобы пользователю выпадали ненулевые значения
+    private static final int GCD_LOWER_BORDER = 1;
+
     public static void startGCDGame() {
         String[][] questionAnswerPairs = new String[Engine.ROUND_COUNT][];
 
