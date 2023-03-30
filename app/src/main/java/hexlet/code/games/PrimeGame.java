@@ -5,7 +5,6 @@ import hexlet.code.RandomUtils;
 
 public class PrimeGame {
     public static final String PRIME_RULE = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
-    //т.к. в Википедии дан список простых чисел до 3571, поставлю это число верх. границей
     private static final int PRIME_UPPER_BORDER = 3571;
 
     public static void startPrimeGame() {

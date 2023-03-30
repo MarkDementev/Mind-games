@@ -9,8 +9,6 @@ public class CalculatorGame {
             "Математическая операция почему-то не определилась к этому моменту."
                     + " А должна была определиться случайным образом без участия игрока..."
                     + " Проблема в коде программы, требует исправления!!!";
-    //прописываю диапазон генерации элементов [2;50], чтобы упростить пользователю счёт "в уме"
-    //но начал его с 2, чтобы не пришлось без интереса пользователю умножать на 0 или 1
     private static final int EXPRESSION_ELEMENT_LOWER_BORDER = 2;
     private static final int EXPRESSION_ELEMENT_UPPER_BORDER = 50;
     private static final int MATH_OPERATOR_ELECTOR_LOWER_BORDER = 0;
